@@ -10,7 +10,7 @@ function searchEle(arr, ele) {
 }
 
 // test
-console.log(searchEle([1, 66, 87, 23, 65, 0, 12], 66));
+// console.log(searchEle([1, 66, 87, 23, 65, 0, 12], 66));
 
 // write a fn that returns how many negative numbers are in the arr
 function countNegative(arr) {
@@ -25,7 +25,7 @@ function countNegative(arr) {
 }
 
 // test
-console.log(countNegative([1, 2, -55, 90, -6, 1, 0]));
+// console.log(countNegative([1, 2, -55, 90, -6, 1, 0]));
 
 // write a fn that returns the largest number in the arr
 function largestInArr(arr) {
@@ -41,4 +41,24 @@ function largestInArr(arr) {
 }
 
 // test
-console.log(largestInArr([-1, 2, -6, -9]));
+// console.log(largestInArr([-1, 2, -6, -9]));
+
+// find the second largest number in the array
+function secondLargest(arr) {
+  let largest = -Infinity;
+  let seclargest = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      seclargest = largest;
+      largest = arr[i];
+    } else if (arr[i] > seclargest && arr[i] !== largest) {
+      seclargest = arr[i];
+    }
+  }
+
+  return seclargest;
+}
+
+// test
+console.log(secondLargest([111, 111, 3, 90, 66, 99, 66, 23, -1100]));
