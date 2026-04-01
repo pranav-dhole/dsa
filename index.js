@@ -70,4 +70,66 @@ function thirdLargest(arr) {
 }
 
 // test
-console.log(thirdLargest([111, 111, 110, 110, 66, 12, 44, 83]));
+// console.log(thirdLargest([111, 111, 110, 110, 66, 12, 44, 83]));
+
+// write a fn that takes n amount of number and converts it into a star pattern:
+
+// 1)
+// * * * *
+// * * * *
+// * * * *
+// * * * *
+
+function firstStarPattern(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = 0; j < n; j++) {
+      row += " * ";
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+// firstStarPattern(7);
+
+// 2)
+// *
+// * *
+// * * *
+// * * * *
+
+function secondStarPattern(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = 0; j < i + 1; j++) {
+      row += " * ";
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+// secondStarPattern(7);
+
+// 3)
+// * * * *
+// * * *
+// * *
+// *
+
+function thirdStarPattern(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = n; j > i; j--) {
+      row += " * ";
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+thirdStarPattern(7);
