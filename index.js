@@ -44,21 +44,30 @@ function largestInArr(arr) {
 // console.log(largestInArr([-1, 2, -6, -9]));
 
 // find the second largest number in the array
-function secondLargest(arr) {
+function thirdLargest(arr) {
   let largest = -Infinity;
   let seclargest = -Infinity;
+  let thilargest = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > largest) {
+      thilargest = seclargest;
       seclargest = largest;
       largest = arr[i];
     } else if (arr[i] > seclargest && arr[i] !== largest) {
+      thilargest = seclargest;
       seclargest = arr[i];
+    } else if (
+      arr[i] > thilargest &&
+      arr[i] !== largest &&
+      arr[i] !== seclargest
+    ) {
+      thilargest = arr[i];
     }
   }
 
-  return seclargest;
+  return thilargest;
 }
 
 // test
-console.log(secondLargest([111, 111, 3, 90, 66, 99, 66, 23, -1100]));
+console.log(thirdLargest([111, 111, 110, 110, 66, 12, 44, 83]));
