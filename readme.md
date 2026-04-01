@@ -13,3 +13,6 @@
 -finds the second largest element in the array and also checks if my second largest element isnt equal to the largest element.
 
 -just updated findSecondLargest() to thirdLargest(), to check if i can find the thirdlargest element as well or not.
+
+-firstStarPattern(), secondStarPattern(), thirdStarPattern()
+start pattern questions that print out start patterns using loop in loop O(n2) complexity.
