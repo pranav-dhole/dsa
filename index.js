@@ -131,5 +131,107 @@ function thirdStarPattern(n) {
   }
 }
 
+// 4)
+//     *
+//    **
+//   ***
+//  ****
+// *****
+
+function fourthStarPattern(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+
+    for (let j = 0; j < n - (i + 1); j++) {
+      row += "  ";
+    }
+
+    for (let k = 0; k < i + 1; k++) {
+      row += "* ";
+    }
+
+    console.log(row);
+  }
+}
+
 //test
-thirdStarPattern(7);
+// fourthStarPattern(5);
+
+// 5)
+// 12345
+// 1234
+// 123
+// 12
+// 1
+
+function numberPatternOne(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = 0; j < n - i; j++) {
+      row += ` ${j + 1} `;
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+// numberPatternOne(7);
+
+// 6)
+// 10101
+// 1010
+// 101
+// 10
+// 1
+
+function numberPatternTwo(n) {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    let num = 1;
+
+    for (let j = 0; j < n - i; j++) {
+      row += ` ${num} `;
+
+      if (num === 1) {
+        num = 0;
+      } else {
+        num = 1;
+      }
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+// numberPatternTwo(7);
+
+// 7)
+// 10101
+// 0101
+// 010
+// 10
+// 1
+
+function numberPatternThree(n) {
+  let num = 1;
+  for (let i = 0; i < n; i++) {
+    let row = "";
+
+    for (let j = 0; j < n - i; j++) {
+      row += ` ${num} `;
+
+      if (num === 1) {
+        num = 0;
+      } else {
+        num = 1;
+      }
+    }
+
+    console.log(row);
+  }
+}
+
+//test
+// numberPatternThree(7);
