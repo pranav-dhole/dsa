@@ -18,5 +18,11 @@
 -start pattern questions that print out start patterns using loop in loop O(n2) complexity.
 
 -numberPatternOne(),numberPatternTwo(), numberPatterThree(), numberPatternFour().
+-number patterns that are not so easy to handle.
 
-- number patterns that are not so easy to handle.
+-calculateNumber()
+-return the count of numbers present in the given number
+-for ex : 4523 has 4 numbers and 0 has 1 number
+
+-findIsPalindrome()
+-returns true if the given number is palindrome otherwise returns false, works for negative numbers as well.

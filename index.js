@@ -235,3 +235,45 @@ function numberPatternThree(n) {
 
 //test
 // numberPatternThree(7);
+
+// --------------------
+// return the count of numbers present in the number
+// for ex : number = 3357, should return 4
+
+function calculateNumber(number) {
+  if (number === 0) {
+    return 1;
+  }
+
+  number = Math.abs(number);
+  let count = 0;
+
+  while (number > 0) {
+    number = Math.floor(number / 10);
+    count++;
+  }
+
+  return count;
+}
+
+// console.log(calculateNumber(-1034)); //logs 4
+// console.log(calculateNumber(0)); //logs 1
+// console.log(calculateNumber(24063)); //logs 5
+
+// palindrome question
+function findIsPalindrome(num) {
+  let numCopy = num;
+  let reverse = 0;
+
+  while (num > 0) {
+    let remainder = num % 10;
+    reverse = 10 * reverse + remainder;
+    console.log(reverse);
+    num = Math.floor(num / 10);
+  }
+
+  return reverse === numCopy;
+}
+
+// console.log(findIsPalindrome(-121)); // returns false
+// console.log(findIsPalindrome(121)); // returns true
