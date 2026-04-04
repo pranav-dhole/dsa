@@ -277,3 +277,28 @@ function findIsPalindrome(num) {
 
 // console.log(findIsPalindrome(-121)); // returns false
 // console.log(findIsPalindrome(121)); // returns true
+
+//reverse the number without changing its + - signs & it should also be in the -2**31 and 2**31 -1 range only if not return 0
+function reverseDigit(num) {
+  let numCopy = num;
+  let reverse = 0;
+
+  num = Math.abs(num);
+  while (num > 0) {
+    let remainder = num % 10;
+    reverse = 10 * reverse + remainder;
+    num = Math.floor(num / 10);
+  }
+
+  let limit = Math.pow(2, 31);
+  if (reverse < -limit || reverse > limit) {
+    return 0;
+  }
+
+  return numCopy < 0 ? -reverse : reverse;
+}
+
+//test
+// console.log(reverseDigit(-3895)); // logs -5983
+// console.log(reverseDigit(1233)); // logs 3321
+// console.log(reverseDigit(1200000648)); // logs 0

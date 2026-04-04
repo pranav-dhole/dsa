@@ -26,3 +26,6 @@
 
 -findIsPalindrome()
 -returns true if the given number is palindrome otherwise returns false, works for negative numbers as well.
+
+-reverseDigit()
+-reverse the number without changing its (+ -) signs & it should also be in the (-2**31 and 2**31 -1) range only if not return 0.
