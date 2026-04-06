@@ -302,3 +302,33 @@ function reverseDigit(num) {
 // console.log(reverseDigit(-3895)); // logs -5983
 // console.log(reverseDigit(1233)); // logs 3321
 // console.log(reverseDigit(1200000648)); // logs 0
+
+// leetcode : 27. Remove Element
+function removeElement(arr, val) {
+  let x = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== val) {
+      arr[x] = arr[i];
+      x++;
+    }
+  }
+
+  return x;
+}
+
+// console.log(removeElement([1, 2, 3, 4, 4, 5, 4], 4));
+// console.log(removeElement([-1, 2, 3, -1, 4, 6, 7, -1], -1));
+
+// leetcode :344. Reverse String
+function reverseString(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    let temp = str[i];
+    str[i] = str[str.length - 1 - i];
+    str[str.length - 1 - i] = temp;
+  }
+
+  return str;
+}
+
+// console.log(reverseString(["m", "a", "h", "a", "n"]));
+// console.log(reverseString(["h", "e", "l", "l", "o"]));

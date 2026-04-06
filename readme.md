@@ -29,3 +29,9 @@
 
 -reverseDigit()
 -reverse the number without changing its (+ -) signs & it should also be in the (-2**31 and 2**31 -1) range only if not return 0.
+
+-removeElement(arr,val) // 27. remove element leetcode question.
+-removes occurances of val in the arr given on place then returns the count of elements that are not equal to val.
+
+-reverseString(str) // 344.reverse string leetcode question.
+-reverses given str on place.
