@@ -332,3 +332,25 @@ function reverseString(str) {
 
 // console.log(reverseString(["m", "a", "h", "a", "n"]));
 // console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// leetcode : 121. best time to buy and sell a stock.
+function maxProfit(prices) {
+  let min = prices[0];
+  let max = 0;
+
+  // starting i from 1 instead of 0 cause we cant buy and sell on  same day, so no point to iterating for 0th index.
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] - min > max) {
+      max = prices[i] - min;
+    }
+
+    if (prices[i] < min) {
+      min = prices[i];
+    }
+  }
+
+  return max;
+}
+
+// console.log(maxProfit([2, 5, 4, 1, 3, 2])); // returns 3 as expected, buying on 1st day and selling on 2nd day makes the maximum profit.
+// console.log(maxProfit([10, 8, 6, 4, 2, 1])); // returns 0 as expected, the prices are decreasing as the days are increasing so there is no room for any profit.

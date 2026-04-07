@@ -35,3 +35,6 @@
 
 -reverseString(str) // 344.reverse string leetcode question.
 -reverses given str on place.
+
+-best time to buy and sell. // 121th leetcode question
+-the problem is to find the maximum profit that you can have by firstly buying the stock and then sell it on profit in future. keep in mind you cant sell your stock on the same day. if no profit was possible return 0 as profit.
