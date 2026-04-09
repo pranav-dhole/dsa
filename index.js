@@ -354,3 +354,24 @@ function maxProfit(prices) {
 
 // console.log(maxProfit([2, 5, 4, 1, 3, 2])); // returns 3 as expected, buying on 1st day and selling on 2nd day makes the maximum profit.
 // console.log(maxProfit([10, 8, 6, 4, 2, 1])); // returns 0 as expected, the prices are decreasing as the days are increasing so there is no room for any profit.
+
+//moves all the zeroes to the end of array and all the non-zero number to the front with the same order as the loop will face.
+function moveZeroes(arr) {
+  let x = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[x] = arr[i];
+      x++;
+    }
+  }
+
+  for (let j = x; j < arr.length; j++) {
+    arr[j] = 0;
+  }
+
+  return arr;
+}
+
+console.log(moveZeroes([0, 1, 0, 3, 12])); // returns [1,3,12,0,0]
+console.log(moveZeroes([0, 0, 0, 0, 0])); // returns [0,0,0,0,0]
