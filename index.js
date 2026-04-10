@@ -373,5 +373,21 @@ function moveZeroes(arr) {
   return arr;
 }
 
-console.log(moveZeroes([0, 1, 0, 3, 12])); // returns [1,3,12,0,0]
-console.log(moveZeroes([0, 0, 0, 0, 0])); // returns [0,0,0,0,0]
+// console.log(moveZeroes([0, 1, 0, 3, 12])); // returns [1,3,12,0,0]
+// console.log(moveZeroes([0, 0, 0, 0, 0])); // returns [0,0,0,0,0]
+
+//find the missing number from the max and min number from given array.
+function missingNum(arr) {
+  let n = arr.length;
+  let totalSum = (n * (n + 1)) / 2;
+
+  let partialSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    partialSum += arr[i];
+  }
+
+  return totalSum - partialSum;
+}
+
+console.log(missingNum([1, 0, 3])); // returns 2
+console.log(missingNum([9, 3, 5, 6, 7, 1, 2, 0, 4])); // returns 8

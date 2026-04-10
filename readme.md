@@ -39,5 +39,8 @@
 -best time to buy and sell. // 121th leetcode question
 -the problem is to find the maximum profit that you can have by firstly buying the stock and then sell it on profit in future. keep in mind you cant sell your stock on the same day. if no profit was possible return 0 as profit.
 
--moveZeroes() // 283th leetcode question
+-moveZeroes() // 283th leetcode question.
 -moves all the zeroes to the end of array and all the non-zero number to the front with the same order as the loop will face.
+
+-missingNumber() // 268th leetcode question.
+-returns the missing number from the array max and min number.
