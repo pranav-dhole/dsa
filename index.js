@@ -411,5 +411,5 @@ function singleNumber(arr) {
   }
 }
 
-console.log(singleNumber([4, 1, 2, 1, 2])); // returns 4
-console.log(singleNumber([3, 1, 5, 3, 1])); // returns 5
+// console.log(singleNumber([4, 1, 2, 1, 2])); // returns 4
+// console.log(singleNumber([3, 1, 5, 3, 1])); // returns 5
