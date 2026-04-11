@@ -389,5 +389,27 @@ function missingNum(arr) {
   return totalSum - partialSum;
 }
 
-console.log(missingNum([1, 0, 3])); // returns 2
-console.log(missingNum([9, 3, 5, 6, 7, 1, 2, 0, 4])); // returns 8
+// console.log(missingNum([1, 0, 3])); // returns 2
+// console.log(missingNum([9, 3, 5, 6, 7, 1, 2, 0, 4])); // returns 8
+
+//Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+function singleNumber(arr) {
+  let hash = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!hash[arr[i]]) {
+      hash[arr[i]] = 1;
+    } else {
+      hash[arr[i]]++;
+    }
+  }
+
+  for (let j = 0; j < arr.length; j++) {
+    if (hash[arr[j]] == 1) {
+      return arr[j];
+    }
+  }
+}
+
+console.log(singleNumber([4, 1, 2, 1, 2])); // returns 4
+console.log(singleNumber([3, 1, 5, 3, 1])); // returns 5
