@@ -393,6 +393,7 @@ function missingNum(arr) {
 // console.log(missingNum([9, 3, 5, 6, 7, 1, 2, 0, 4])); // returns 8
 
 //Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// 1st approach
 function singleNumber(arr) {
   let hash = {};
 
@@ -411,5 +412,16 @@ function singleNumber(arr) {
   }
 }
 
-// console.log(singleNumber([4, 1, 2, 1, 2])); // returns 4
+//2nd approach
+function singleNumber2(arr) {
+  let xor = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    xor = arr[i] ^ xor;
+  }
+
+  return xor;
+}
+
+// console.log(singleNumber2([4, 1, 2, 1, 2])); // returns 4
 // console.log(singleNumber([3, 1, 5, 3, 1])); // returns 5

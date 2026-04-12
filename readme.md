@@ -46,4 +46,5 @@
 -returns the missing number from the array max and min number.
 
 -singleNumber(arr)
+-singleNumber2(arr) // second approach with bitwise XOR
 -Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
