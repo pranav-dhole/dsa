@@ -425,3 +425,50 @@ function singleNumber2(arr) {
 
 // console.log(singleNumber2([4, 1, 2, 1, 2])); // returns 4
 // console.log(singleNumber([3, 1, 5, 3, 1])); // returns 5
+
+//find the sum of numbers in an array using recursion method.
+let arr = [3, 6, 2, 1, 7, 8, 0];
+
+// 1) sum of all numbers.
+function sumOfAll(n) {
+  if (n == 0) return arr[n];
+
+  return arr[n] + sumOfAll(n - 1);
+}
+
+// console.log(sumOfAll(arr.length - 1)); // returns 27
+
+// 2) sum of all even numbers.
+function sumOfAllEven(n) {
+  let isEven = arr[n] % 2 == 0;
+  if (n == 0) {
+    return isEven ? arr[n] : 0;
+  }
+
+  return (isEven ? arr[n] : 0) + sumOfAllEven(n - 1);
+}
+
+// console.log(sumOfAllEven(arr.length - 1)); // returns 16
+
+// 3) sum of all odd numbers.
+function sumOfAllOdd(n) {
+  let isOdd = arr[n] % 2 != 0;
+  if (n == 0) {
+    return isOdd ? arr[n] : 0;
+  }
+
+  return (isOdd ? arr[n] : 0) + sumOfAllOdd(n - 1);
+}
+
+// console.log(sumOfAllOdd(arr.length - 1)); // returns 11
+
+// 4) return the factorial of given number n.
+function factorialOf(n) {
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+
+  return n * factorialOf(n - 1);
+}
+
+// console.log(factorialOf(5)); // returns 120
+// console.log(factorialOf(0)); // returns 0

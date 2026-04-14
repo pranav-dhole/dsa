@@ -48,3 +48,6 @@
 -singleNumber(arr)
 -singleNumber2(arr) // second approach with bitwise XOR
 -Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+-sumOfAll(), sumOfAllEven(), sumOfAllOdd(), factorialOf()
+-These functions return the value as their name suggests using recursion method specifically from an given array except the last one returns factorial of given n value.
