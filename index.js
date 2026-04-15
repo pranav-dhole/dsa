@@ -472,3 +472,32 @@ function factorialOf(n) {
 
 // console.log(factorialOf(5)); // returns 120
 // console.log(factorialOf(0)); // returns 0
+
+// finds the fibonacci of given number n. (recursive & for loop method)
+// 1) recursive method.
+function findFibo(n) {
+  if (n <= 1) return n;
+  return findFibo(n - 1) + findFibo(n - 2);
+}
+
+// console.log(findFibo(8)); // returns 21
+
+// 2) for loop method.
+function findFibo2(n) {
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+
+  let returnVal = 0;
+  let prev = 0;
+  let curr = 1;
+
+  for (let i = 2; i <= n; i++) {
+    returnVal = prev + curr;
+    prev = curr;
+    curr = returnVal;
+  }
+
+  return returnVal;
+}
+
+// console.log(findFibo2(6)); //returns 8

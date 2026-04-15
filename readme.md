@@ -51,3 +51,6 @@
 
 -sumOfAll(), sumOfAllEven(), sumOfAllOdd(), factorialOf()
 -These functions return the value as their name suggests using recursion method specifically from an given array except the last one returns factorial of given n value.
+
+-findFibo() // 509. Fibonacci Number
+-finds the fibonacci of given number n. (recursive & for loop method)
