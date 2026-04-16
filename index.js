@@ -501,3 +501,28 @@ function findFibo2(n) {
 }
 
 // console.log(findFibo2(6)); //returns 8
+
+// sort the given array using bubble sort algorithm.
+function sortArr(arr) {
+  let count = 0;
+  for (let j = 0; j < arr.length; j++) {
+    let swapped = false;
+
+    for (let i = 0; i <= arr.length - 1; i++) {
+      count++;
+
+      let temp = arr[i];
+      if (arr[i] > arr[i + 1]) {
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
+      }
+    }
+
+    if (!swapped) break;
+  }
+
+  return arr;
+}
+
+console.log(sortArr([42, 7, 89, 12, 55, 23, 1, 67, 34, 90, 15, 3])); // returns [1,  3,  7, 12, 15, 23, 34, 42, 55, 67,89, 90]

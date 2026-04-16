@@ -54,3 +54,6 @@
 
 -findFibo() // 509. Fibonacci Number
 -finds the fibonacci of given number n. (recursive & for loop method)
+
+-sortArr()
+-sorts the given array using bubble sort algorithm.
