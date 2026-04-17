@@ -525,4 +525,26 @@ function sortArr(arr) {
   return arr;
 }
 
-console.log(sortArr([42, 7, 89, 12, 55, 23, 1, 67, 34, 90, 15, 3])); // returns [1,  3,  7, 12, 15, 23, 34, 42, 55, 67,89, 90]
+// console.log(sortArr([42, 7, 89, 12, 55, 23, 1, 67, 34, 90, 15, 3])); // returns [1,  3,  7, 12, 15, 23, 34, 42, 55, 67,89, 90]
+
+// sort the given array using selection sort algorithm.
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+
+    if (min !== i) {
+      let temp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = temp;
+    }
+  }
+
+  return arr;
+}
+
+// console.log(selectionSort([5, 6, 7, 8, 3, 4, 1, 0, -10])); //returns [-10,0,1,3,4,5,6,7,8]

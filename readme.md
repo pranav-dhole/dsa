@@ -57,3 +57,6 @@
 
 -sortArr()
 -sorts the given array using bubble sort algorithm.
+
+-selectionSort()
+-sorts the given array using selection sort algorithm.
