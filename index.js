@@ -548,3 +548,21 @@ function selectionSort(arr) {
 }
 
 // console.log(selectionSort([5, 6, 7, 8, 3, 4, 1, 0, -10])); //returns [-10,0,1,3,4,5,6,7,8]
+
+//sort the given array using insertion sort algorithm.
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let curr = arr[i];
+    let prev = i - 1;
+
+    while (arr[prev] > curr && prev >= 0) {
+      arr[prev + 1] = arr[prev];
+      prev--;
+    }
+
+    arr[prev + 1] = curr;
+  }
+  return arr;
+}
+
+// console.log(insertionSort([14, 3, 11, 7, 1, 9, 12, 5, 8, 2, 13, 4, 10, 6, 0])); //returns [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]

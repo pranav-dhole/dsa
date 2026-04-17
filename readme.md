@@ -60,3 +60,6 @@
 
 -selectionSort()
 -sorts the given array using selection sort algorithm.
+
+-insertionSort()
+-sorts the given array using insertion sort algorithm.
