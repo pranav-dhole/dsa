@@ -63,3 +63,6 @@
 
 -insertionSort()
 -sorts the given array using insertion sort algorithm.
+
+-mergeSort()
+-sorts the given array using merge sort algorithm.

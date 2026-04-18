@@ -566,3 +566,36 @@ function insertionSort(arr) {
 }
 
 // console.log(insertionSort([14, 3, 11, 7, 1, 9, 12, 5, 8, 2, 13, 4, 10, 6, 0])); //returns [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+//sort the given array using merge sort algorithm.
+function merge(left, right) {
+  let leftCopy = [...left];
+  let leng = left.length + right.length;
+  let p1 = 0;
+  let p2 = 0;
+
+  for (let i = 0; i < leng; i++) {
+    if (p2 >= right.length || (p1 < left.length && leftCopy[p1] < right[p2])) {
+      left[i] = leftCopy[p1];
+      p1++;
+    } else {
+      left[i] = right[p2];
+      p2++;
+    }
+  }
+
+  return left;
+}
+
+// this uses the above merge function in its returned function.
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
+}
+
+console.log(mergeSort([1, 4, 7, 8, 2, 3, 5]));
