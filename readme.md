@@ -66,3 +66,6 @@
 
 -mergeSort()
 -sorts the given array using merge sort algorithm.
+
+-reverseList(head)
+-Given the head of a singly linked list, reverse the list, and return the reversed list.

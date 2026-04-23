@@ -598,4 +598,21 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 
-console.log(mergeSort([1, 4, 7, 8, 2, 3, 5]));
+// console.log(mergeSort([1, 4, 7, 8, 2, 3, 5]));
+
+function reverseList(head) {
+  let prev = null;
+  let curr = head;
+
+  while (curr) {
+    // now after all this looping when curr becomes null this loops stops.
+    let temp = curr.next; // 2->3->4->5->null
+    curr.next = prev; // 1->null, 2->1, 3->2, 4->3, 5->4
+    prev = curr; // null->1, 1->2, 2->3, 3->4, 4->5
+    curr = temp; // 1->2, 2->3, 3->4, 4->5, 5->null
+  }
+
+  return prev; // you can also assign head = prev, and return head.
+}
+
+// if 1->2->3->4->5->null lined list given it returns 5->4->3->2->1->null
