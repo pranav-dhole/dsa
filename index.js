@@ -616,3 +616,22 @@ function reverseList(head) {
 }
 
 // if 1->2->3->4->5->null lined list given it returns 5->4->3->2->1->null
+
+// 1st approach
+function hasCycle(head) {
+  let mySet = new Set();
+  let curr = head;
+
+  while (curr) {
+    if (mySet.has(curr)) {
+      return true;
+    } else {
+      mySet.add(curr);
+      curr.next;
+    }
+  }
+
+  return false;
+}
+
+// if 1->2->3->4->5->1(suppose this is the first head node of LL) list given, it returns true. if 1->2->3->4->5->null list given it returns false
