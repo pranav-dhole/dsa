@@ -617,6 +617,7 @@ function reverseList(head) {
 
 // if 1->2->3->4->5->null lined list given it returns 5->4->3->2->1->null
 
+// return true if given LL follows cycle otherwise return false.
 // 1st approach
 function hasCycle(head) {
   let mySet = new Set();
@@ -629,6 +630,39 @@ function hasCycle(head) {
       mySet.add(curr);
       curr.next;
     }
+  }
+
+  return false;
+}
+
+// 2nd approach
+function hasCycle2(head) {
+  if (head === null) return false;
+
+  let slow = head;
+  let fast = head.next;
+
+  while (slow !== fast) {
+    if (fast === null || fast.next === null) return false;
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return true;
+}
+
+// 3rd approach
+function hasCycle2(head) {
+  if (head === null) return false;
+
+  let slow = head;
+  let fast = head;
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) return true;
   }
 
   return false;

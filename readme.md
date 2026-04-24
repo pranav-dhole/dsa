@@ -70,5 +70,5 @@
 -reverseList(head)
 -Given the head of a singly linked list, reverse the list, and return the reversed list.
 
--hasCycle()
+-hasCycle() #141th.linked list cycle leetcode question.
 -returns true if given linked list has cycle, if not returns false.
