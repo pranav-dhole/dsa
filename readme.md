@@ -72,3 +72,6 @@
 
 -hasCycle() #141th.linked list cycle leetcode question.
 -returns true if given linked list has cycle, if not returns false.
+
+-getIntersectionNode() #160th. Intersection of Two Linked Lists
+-returns the node from where the two nodes intersect with each other.

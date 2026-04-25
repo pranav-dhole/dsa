@@ -669,3 +669,22 @@ function hasCycle2(head) {
 }
 
 // if 1->2->3->4->5->1(suppose this is the first head node of LL) list given, it returns true. if 1->2->3->4->5->null list given it returns false
+
+function getIntersectionNode(headA, headB) {
+  let mySet = new Set();
+
+  while (headB) {
+    mySet.add(headB);
+    headB = headB.next;
+  }
+
+  while (headA) {
+    if (mySet.has(headA)) return headA;
+    headA = headA.next;
+  }
+
+  return null;
+}
+
+// if 1->2->3->4->5->null
+// 3->5->2-> suppose its intersecting at headA's 3 node , so the answer it returns is 3.
