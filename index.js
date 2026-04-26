@@ -688,3 +688,23 @@ function getIntersectionNode(headA, headB) {
 
 // if 1->2->3->4->5->null
 // 3->5->2-> suppose its intersecting at headA's 3 node , so the answer it returns is 3.
+
+//2nd approach of brute forch
+function getIntersectionNode(headA, headB) {
+  let b = headB;
+
+  while (headA) {
+    if (headA === headB) return headA;
+
+    headB = headB.next;
+
+    if (headB === null) {
+      headA = headA.next;
+      headB = b;
+    }
+  }
+
+  return null;
+}
+
+// this approach works for small LL's but not for very long ones, there it exceeds the time limit.
