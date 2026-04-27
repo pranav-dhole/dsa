@@ -716,7 +716,7 @@ function ListNode(val, next) {
 
 // 1st approach
 function removeNthFromEnd(head, n) {
-  let sentinel = ListNode();
+  let sentinel = new ListNode();
   sentinel.next = head;
 
   let length = 0;
@@ -738,4 +738,41 @@ function removeNthFromEnd(head, n) {
   return sentinel.next;
 }
 
-removeNthFromEnd();
+//2nd approach
+function removeNthFromEnd2(head, n) {
+  let sentinel = new ListNode();
+  sentinel.next = head;
+
+  let p1 = sentinel;
+  for (let i = 0; i < n; i++) {
+    p1 = p1.next;
+  }
+
+  let p2 = sentinel;
+
+  while (p1) {
+    p1 = p1.next;
+    p2 = p2.next;
+  }
+
+  p2.next = p2.next.next;
+
+  return sentinel.next;
+}
+
+// create a function that returns a LL with no duplicates.
+function deleteDuplicates(head) {
+  let curr = head;
+
+  while (curr && curr.next) {
+    if (curr.val === curr.next.val) {
+      curr.next = curr.next.next;
+    } else {
+      curr = curr.next;
+    }
+  }
+
+  return head;
+}
+
+// if given LL is  [1,1,2,3,3] it will return [1,2,3] LL

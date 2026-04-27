@@ -78,3 +78,6 @@
 
 -removeNthFromEnd() #19th. Remove Nth Node From End of List
 -returns the LL with nth node from the end of LL removed;
+
+-deleteDuplicates() #83th. Remove Duplicates from Sorted List
+-returns LL with no duplicates in sight.
