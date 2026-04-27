@@ -75,3 +75,6 @@
 
 -getIntersectionNode() #160th. Intersection of Two Linked Lists
 -returns the node from where the two nodes intersect with each other.
+
+-removeNthFromEnd() #19th. Remove Nth Node From End of List
+-returns the LL with nth node from the end of LL removed;
