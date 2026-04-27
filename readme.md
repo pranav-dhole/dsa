@@ -81,3 +81,6 @@
 
 -deleteDuplicates() #83th. Remove Duplicates from Sorted List
 -returns LL with no duplicates in sight.
+
+-oddEvenList() #328th. Odd Even Linked List
+-returns LL with odd indexed nodes first and after that even indexed nodes at the end of last odd node

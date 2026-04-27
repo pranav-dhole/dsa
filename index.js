@@ -776,3 +776,23 @@ function deleteDuplicates(head) {
 }
 
 // if given LL is  [1,1,2,3,3] it will return [1,2,3] LL
+
+// create a function that returns a LL with odd indexed nodes coming at first then followed by even indexed nodes, keep in mind the order of nodes shouldnt change.
+function oddEvenList(head) {
+  let odd = head;
+  let even = head.next;
+  let evenCopy = even;
+
+  while (odd.next && even.next) {
+    odd.next = odd.next.next;
+    even.next = even.next.next;
+    odd = odd.next;
+    even = even.next;
+  }
+
+  odd.next = evenCopy;
+
+  return head;
+}
+
+// if given LL is [1,2,4,6,8,4,5] it will return [1,4,8,5,2,6,4] LL
