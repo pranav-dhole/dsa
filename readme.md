@@ -84,3 +84,6 @@
 
 -oddEvenList() #328th. Odd Even Linked List
 -returns LL with odd indexed nodes first and after that even indexed nodes at the end of last odd node
+
+-swapPairs() #24th. Swap Nodes In Pairs.
+-returns the swapped pair LL.

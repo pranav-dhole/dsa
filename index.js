@@ -796,3 +796,59 @@ function oddEvenList(head) {
 }
 
 // if given LL is [1,2,4,6,8,4,5] it will return [1,4,8,5,2,6,4] LL
+
+//swapPairs => returns the LL with swapped pairs second node of pair coming at first and first one going at second place.
+// 1st approach
+function swapPairs(head) {
+  //if head is empty or only contains one node just return it from here
+  if (!head || !head.next) return head;
+
+  //suppose i am creating a sentinel node below.
+  let dummy = new ListNode();
+  dummy.next = head;
+
+  let prev = dummy;
+  let curr = head;
+  let next = head.next;
+
+  while (curr & next) {
+    //referencing pointers
+    prev.next = next;
+    curr.next = next.next;
+    next.next = curr;
+
+    //moving pointers forward
+    prev = curr;
+    curr = prev.next;
+    next = curr & curr.next;
+  }
+
+  //return dummy.next cause that what is pointing towards our head
+  return dummy.next;
+}
+
+// if given LL is [1,2,3,4] it should return [2,1,4,3]
+
+//2nd approach (recursive method)
+function swapPairs2(head) {
+  //writting base condition for when the head is null.
+  if (!head || !head.next) return head;
+
+  let left = head;
+  let right = head.next;
+
+  //below is the recursive case which will till it doesn't hit base case.
+  left.next = swapPairs2(right.next);
+  right.next = left;
+
+  return right;
+}
+
+// if given LL is [1,2,3,4] it should return [2,1,4,3]
+
+// 1st step => swapPairs2([1,2,3,4]) will be called which will go till left.next line where it will call again itself with right.next part of LL
+// 2nd step => swapPairs2([3,4]) will be called which again will go till left.next line where it will call again itself with right.next.
+// 3rd step => swapPairs2([null]) will be called which will immediately return head i.e null in this case.
+// 4th step => 2nd step swap call will get the left.next value as [4,3,null].
+// 5th step => 1st step call will get its left.next value as [1,4,3,null].
+// 6th step => finally we will return out right node from the 1st step call which will be [2,1,4,3,null].
