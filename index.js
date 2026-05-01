@@ -852,3 +852,16 @@ function swapPairs2(head) {
 // 4th step => 2nd step swap call will get the left.next value as [4,3,null].
 // 5th step => 1st step call will get its left.next value as [1,4,3,null].
 // 6th step => finally we will return out right node from the 1st step call which will be [2,1,4,3,null].
+
+// write a function that returns length of last word of given string.
+// 1st approach
+function lengthOfLastWord(s) {
+  let length = 0;
+
+  let myArr = s.split(" ").filter((word) => word.length > 0);
+  length = myArr[myArr.length - 1].length;
+
+  return length;
+}
+
+// console.log(lengthOfLastWord(" Hello World  ")); // returns 5

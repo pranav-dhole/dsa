@@ -87,3 +87,6 @@
 
 -swapPairs() #24th. Swap Nodes In Pairs.
 -returns the swapped pair LL.
+
+-lengthOfLastWord()
+-returns length of last word from given string.
