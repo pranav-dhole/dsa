@@ -865,3 +865,20 @@ function lengthOfLastWord(s) {
 }
 
 // console.log(lengthOfLastWord(" Hello World  ")); // returns 5
+
+//2nd appraoch
+function lengthOfLastWord2(s) {
+  let length = 0;
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    if (s[i] !== " ") {
+      length++;
+    } else if (length > 0) {
+      break;
+    }
+  }
+
+  return length;
+}
+
+console.log(lengthOfLastWord2(" i am   here for a    selfie    "));
