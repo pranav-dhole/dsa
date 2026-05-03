@@ -881,4 +881,22 @@ function lengthOfLastWord2(s) {
   return length;
 }
 
-console.log(lengthOfLastWord2(" i am   here for a    selfie    "));
+// console.log(lengthOfLastWord2(" i am   here for a    selfie    "));
+
+//write a function that returns index of a word which contains given string x.
+function findWordsContaining(words, x) {
+  let myArr = [];
+
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      if (words[i][j] === x) {
+        myArr.push(i);
+        break;
+      }
+    }
+  }
+
+  return myArr;
+}
+
+// console.log(findWordsContaining(["abc", "bcd", "aaa", "cbc"], "b")); //returns [0,1,3]

@@ -90,3 +90,6 @@
 
 -lengthOfLastWord()
 -returns length of last word from given string.
+
+-findWordsContaining(words,x)
+-returns indexes of the words that contain given word x.
