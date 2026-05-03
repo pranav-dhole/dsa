@@ -93,3 +93,6 @@
 
 -findWordsContaining(words,x)
 -returns indexes of the words that contain given word x.
+
+-numJewelsInStones(jewels, stones)
+-returns how many stones i have are jewels.

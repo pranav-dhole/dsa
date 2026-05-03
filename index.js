@@ -900,3 +900,38 @@ function findWordsContaining(words, x) {
 }
 
 // console.log(findWordsContaining(["abc", "bcd", "aaa", "cbc"], "b")); //returns [0,1,3]
+
+// jewels & stones #771th leetcode question
+// first approach with time complexity of O(jewels * stones) and space complexity of O(1)
+function numJewelsInStones(jewels, stones) {
+  let count = 0;
+
+  for (let i = 0; i < stones.length; i++) {
+    for (let j = 0; j < jewels.length; j++) {
+      if (stones[i] === jewels[j]) count++;
+    }
+  }
+
+  return count;
+}
+
+// console.log(numJewelsInStones("aA", "aAAbbb")); // returns 3
+
+// second approach with time complexity of O(jewels + stones) and space complexity of O(1) * n;
+function numJewelsInStones2(jewels, stones) {
+  let count = 0;
+  let mySet = new Set();
+
+  for (let i = 0; i < jewels.length; i++) {
+    mySet.add(jewels[i]);
+  }
+
+  for (let j = 0; j < stones.length; j++) {
+    if (mySet.has(stones[j])) count++;
+  }
+
+  return count;
+}
+
+// console.log(numJewelsInStones2("az", "ssaeprzZ")); //returns 2
+// console.log(numJewelsInStones2("q", "ssaeprzZ")); //returns 0
