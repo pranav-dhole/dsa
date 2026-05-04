@@ -935,3 +935,37 @@ function numJewelsInStones2(jewels, stones) {
 
 // console.log(numJewelsInStones2("az", "ssaeprzZ")); //returns 2
 // console.log(numJewelsInStones2("q", "ssaeprzZ")); //returns 0
+
+//3541.Find Most Frequent Vowel and Consonant leetcode question
+function maxFreqSum(s) {
+  let vowelsObj = { a: 0, e: 0, o: 0, u: 0, i: 0 };
+  let consonentObj = {};
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] in vowelsObj) {
+      vowelsObj[s[i]] += 1;
+    } else {
+      if (!(s[i] in consonentObj)) {
+        consonentObj[s[i]] = 1;
+      } else {
+        consonentObj[s[i]] += 1;
+      }
+    }
+  }
+
+  let maxVowelFreq = 0;
+  for (const key in vowelsObj) {
+    if (vowelsObj[key] > maxVowelFreq) maxVowelFreq = vowelsObj[key];
+  }
+
+  let maxConsonentFreq = 0;
+  for (const key in consonentObj) {
+    if (consonentObj[key] > maxConsonentFreq)
+      maxConsonentFreq = consonentObj[key];
+  }
+
+  return maxVowelFreq + maxConsonentFreq;
+}
+
+console.log(maxFreqSum("successes")); //returns 6, with maxVowelFreq being 2 and maxConsonentFreq being 4.
+console.log(maxFreqSum("aeiaeia")); //returns 3, with maxVowelFreq being 3 and maxConsonentFreq being 0.
