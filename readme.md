@@ -96,3 +96,6 @@
 
 -numJewelsInStones(jewels, stones)
 -returns how many stones i have are jewels.
+
+-maxFreqSum()
+-returns the sum of maximum vowel and maximum consonent.
