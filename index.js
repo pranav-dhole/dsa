@@ -987,6 +987,21 @@ function balancedStringSplit(s) {
   return count;
 }
 
-console.log(balancedStringSplit("RLRRLLRLRL")); // returns 4
-console.log(balancedStringSplit("RLRRRLLRLL")); // returns 2
-console.log(balancedStringSplit("LLLLRRRR")); // returns 1
+// 2nd approach
+function balancedStringSplit2(s) {
+  let temp = 0;
+  let count = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "R") ++temp;
+    if (s[i] === "L") --temp;
+
+    if (temp === 0) ++count;
+  }
+
+  return count;
+}
+
+console.log(balancedStringSplit2("RLRRLLRLRL")); // returns 4
+console.log(balancedStringSplit2("RLRRRLLRLL")); // returns 2
+console.log(balancedStringSplit2("LLLLRRRR")); // returns 1
