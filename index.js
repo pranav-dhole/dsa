@@ -967,5 +967,26 @@ function maxFreqSum(s) {
   return maxVowelFreq + maxConsonentFreq;
 }
 
-console.log(maxFreqSum("successes")); //returns 6, with maxVowelFreq being 2 and maxConsonentFreq being 4.
-console.log(maxFreqSum("aeiaeia")); //returns 3, with maxVowelFreq being 3 and maxConsonentFreq being 0.
+// console.log(maxFreqSum("successes")); //returns 6, with maxVowelFreq being 2 and maxConsonentFreq being 4.
+// console.log(maxFreqSum("aeiaeia")); //returns 3, with maxVowelFreq being 3 and maxConsonentFreq being 0.
+
+//1221. Split a String in Balanced Strings leetcode question
+// 1st approach
+function balancedStringSplit(s) {
+  let R = 0;
+  let L = 0;
+  let count = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "R") ++R;
+    if (s[i] === "L") ++L;
+
+    if (R === L) ++count;
+  }
+
+  return count;
+}
+
+console.log(balancedStringSplit("RLRRLLRLRL")); // returns 4
+console.log(balancedStringSplit("RLRRRLLRLL")); // returns 2
+console.log(balancedStringSplit("LLLLRRRR")); // returns 1

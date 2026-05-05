@@ -99,3 +99,6 @@
 
 -maxFreqSum()
 -returns the sum of maximum vowel and maximum consonent.
+
+-balancedStringSplit()
+-returns the number of times R and L were in balanced pairs.
