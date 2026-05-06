@@ -1002,6 +1002,22 @@ function balancedStringSplit2(s) {
   return count;
 }
 
-console.log(balancedStringSplit2("RLRRLLRLRL")); // returns 4
-console.log(balancedStringSplit2("RLRRRLLRLL")); // returns 2
-console.log(balancedStringSplit2("LLLLRRRR")); // returns 1
+// console.log(balancedStringSplit2("RLRRLLRLRL")); // returns 4
+// console.log(balancedStringSplit2("RLRRRLLRLL")); // returns 2
+// console.log(balancedStringSplit2("LLLLRRRR")); // returns 1
+
+function reverseStr(s, k) {
+  s = s.split("");
+
+  for (let i = 0; i < s.length; i += +2 * k) {
+    for (let j = 1; j < k; j++) {
+      let temp = s[i + j]; // s[i + 0] is e
+      s[i + j] = s[i + k - j - 1];
+      s[i + k - j - 1] = temp;
+    }
+  }
+
+  return s.join("");
+}
+
+console.log(reverseStr("abcdefg", 2)); // returns "bacdfeg"
