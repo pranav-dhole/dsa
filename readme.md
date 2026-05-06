@@ -102,3 +102,6 @@
 
 -balancedStringSplit()
 -returns the number of times R and L were in balanced pairs.
+
+-reverseStr(s,k) // for me it wasnt easy at all took hours to really understand how the solution is really working
+-returns reversed string with each first k characters being reversed.
