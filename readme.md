@@ -105,3 +105,6 @@
 
 -reverseStr(s,k) // for me it wasnt easy at all took hours to really understand how the solution is really working
 -returns reversed string with each first k characters being reversed.
+
+-isPalindrome(s) //#125th. leetcode question
+-returns true if the alphanumeric characters of string are palindrome else returns false.
