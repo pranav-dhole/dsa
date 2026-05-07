@@ -1010,7 +1010,7 @@ function reverseStr(s, k) {
   s = s.split("");
 
   for (let i = 0; i < s.length; i += +2 * k) {
-    for (let j = 1; j < k; j++) {
+    for (let j = 0; j < Math.floor(k / 2); j++) {
       let temp = s[i + j]; // s[i + 0] is e
       s[i + j] = s[i + k - j - 1];
       s[i + k - j - 1] = temp;
@@ -1020,4 +1020,33 @@ function reverseStr(s, k) {
   return s.join("");
 }
 
-console.log(reverseStr("abcdefg", 2)); // returns "bacdfeg"
+// console.log(reverseStr("abcdef", 3)); // returns "bacdfeg"
+
+// write a function if a given random string containing non-alphanumeric values as well as alphanumeric ones return true if the string of only alphanumeric is palindrome or not
+function isPalindrome(s) {
+  s = s.toLowerCase();
+
+  let p1 = 0;
+  let p2 = s.length - 1;
+
+  for (let i = 0; i < s.length; i++) {
+    if (p2 < p1) break;
+
+    if (s[p1].match(/[a-z0-9]/) && s[p2].match(/[a-z0-9]/)) {
+      if (s[p1] !== s[p2]) return false;
+      p1++;
+      p2--;
+    } else {
+      if (!s[p1].match(/[a-z0-9]/)) {
+        p1++;
+      } else {
+        p2--;
+      }
+    }
+  }
+
+  return true;
+}
+
+// console.log(isPalindrome("No 'x' in Nixon")); //returns true
+// console.log(isPalindrome("I am here, but not There!.")); //returns false
