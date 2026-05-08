@@ -1050,3 +1050,17 @@ function isPalindrome(s) {
 
 // console.log(isPalindrome("No 'x' in Nixon")); //returns true
 // console.log(isPalindrome("I am here, but not There!.")); //returns false
+
+// write a function that returns highest odd number a string contains else return empty string.
+// 1st way of code
+function largestOddNumber(num) {
+  for (let i = num.length - 1; i >= 0; i--) {
+    if (parseInt(num[i]) % 2 === 1) {
+      return num.slice(0, i + 1);
+    }
+  }
+
+  return "";
+}
+
+console.log(largestOddNumber("35456")); // return 3545
