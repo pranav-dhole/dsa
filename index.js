@@ -1063,4 +1063,19 @@ function largestOddNumber(num) {
   return "";
 }
 
-console.log(largestOddNumber("35456")); // return 3545
+// console.log(largestOddNumber("35456")); // return 3545
+
+// 2nd way of code
+function largestOddNumber2(num) {
+  let n = num.length - 1;
+
+  while (n >= 0) {
+    if (parseInt(num[n]) % 2 === 1) return num.slice(0, n + 1);
+    --n;
+  }
+
+  return "";
+}
+
+console.log(largestOddNumber2("4046")); // return "" (empty string)
+console.log(largestOddNumber2("45568")); // return 455
