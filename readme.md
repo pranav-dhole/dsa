@@ -111,3 +111,6 @@
 
 -largestOddNumber(num)
 -returns the largest odd number present in given string else returns empty string
+
+-longestCommonPrefix(strs)
+-returns the largest common prefix out of all provided array of strings.

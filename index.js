@@ -1077,5 +1077,25 @@ function largestOddNumber2(num) {
   return "";
 }
 
-console.log(largestOddNumber2("4046")); // return "" (empty string)
-console.log(largestOddNumber2("45568")); // return 455
+// console.log(largestOddNumber2("4046")); // return "" (empty string)
+// console.log(largestOddNumber2("45568")); // return 455
+
+// write a function that returns the largest common prefix out of all provided array of strings.
+// 1st way to code
+function longestCommonPrefix(strs) {
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      if (strs[i].indexOf(prefix) !== 0) {
+        prefix = prefix.substring(0, prefix.length - 1);
+        if (prefix === "") return "";
+      }
+    }
+  }
+
+  return prefix;
+}
+
+console.log(longestCommonPrefix2(["flower", "flow", "flight"])); // returns "fl"
+console.log(longestCommonPrefix2(["flower", "low", "flght"])); // returns ""
