@@ -1081,7 +1081,6 @@ function largestOddNumber2(num) {
 // console.log(largestOddNumber2("45568")); // return 455
 
 // write a function that returns the largest common prefix out of all provided array of strings.
-// 1st way to code
 function longestCommonPrefix(strs) {
   let prefix = strs[0];
 
@@ -1097,5 +1096,34 @@ function longestCommonPrefix(strs) {
   return prefix;
 }
 
-console.log(longestCommonPrefix2(["flower", "flow", "flight"])); // returns "fl"
-console.log(longestCommonPrefix2(["flower", "low", "flght"])); // returns ""
+// console.log(longestCommonPrefix(["flower", "flow", "flight"])); // returns "fl"
+// console.log(longestCommonPrefix(["flower", "low", "flght"])); // returns ""
+
+// write a function that returns true or false if the given s string is anagram of t string.
+function isAnagram(s, t) {
+  let myObj = {};
+
+  for (let i = 0; i < s.length; i++) {
+    myObj[s[i]] = (myObj[s[i]] || 0) + 1;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    if (myObj[t[i]]) {
+      if (myObj[t[i]] > 0) {
+        myObj[t[i]] -= 1;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  for (let key in myObj) {
+    if (myObj[key] > 0) return false;
+  }
+
+  return true;
+}
+
+console.log(isAnagram("anagram", "naamgra")); // retursn true
+console.log(isAnagram("rat", "car")); // retursn false
+console.log(isAnagram("rat", "card")); // retursn false

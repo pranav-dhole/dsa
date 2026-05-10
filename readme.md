@@ -114,3 +114,6 @@
 
 -longestCommonPrefix(strs)
 -returns the largest common prefix out of all provided array of strings.
+
+-isAnagram(s,t)
+-returns true or false if the given s string is anagram of t string.
