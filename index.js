@@ -1100,7 +1100,9 @@ function longestCommonPrefix(strs) {
 // console.log(longestCommonPrefix(["flower", "low", "flght"])); // returns ""
 
 // write a function that returns true or false if the given s string is anagram of t string.
+// 1st and most efficient way of writing code
 function isAnagram(s, t) {
+  if (s.length !== t.length) return false;
   let myObj = {};
 
   for (let i = 0; i < s.length; i++) {
@@ -1124,6 +1126,14 @@ function isAnagram(s, t) {
   return true;
 }
 
-console.log(isAnagram("anagram", "naamgra")); // retursn true
-console.log(isAnagram("rat", "car")); // retursn false
-console.log(isAnagram("rat", "card")); // retursn false
+// 2nd way of writing same code but this one is not efficient one cause it uses so much space
+function isAnagram2(s, t) {
+  let sCopy = s.split("").sort().join("");
+  let tCopy = t.split("").sort().join("");
+
+  return sCopy === tCopy;
+}
+
+// console.log(isAnagram2("anagram", "naamgra")); // retursn true
+// console.log(isAnagram2("rat", "car")); // retursn false
+// console.log(isAnagram2("rat", "card")); // retursn false
