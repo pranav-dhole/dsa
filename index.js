@@ -1120,7 +1120,7 @@ function isAnagram(s, t) {
   }
 
   for (let key in myObj) {
-    if (myObj[key] > 0) return false;
+    if (myObj[key] > 0 || myObj[key] < 0) return false;
   }
 
   return true;
@@ -1134,6 +1134,28 @@ function isAnagram2(s, t) {
   return sCopy === tCopy;
 }
 
-// console.log(isAnagram2("anagram", "naamgra")); // retursn true
-// console.log(isAnagram2("rat", "car")); // retursn false
-// console.log(isAnagram2("rat", "card")); // retursn false
+// console.log(isAnagram("anagram", "naamgra")); // retursn true
+// console.log(isAnagram("rat", "car")); // retursn false
+// console.log(isAnagram("rat", "card")); // retursn false
+
+function isIsomorphic(s, t) {
+  if (s.length !== t.length) return false;
+
+  let mapStoT = {};
+  let mapTtoS = {};
+
+  for (let i = 0; i < s.length; i++) {
+    if (!mapStoT[s[i]] && !mapTtoS[t[i]]) {
+      mapStoT[s[i]] = t[i];
+      mapTtoS[t[i]] = s[i];
+    } else if (mapStoT[s[i]] !== t[i] || mapTtoS[t[i]] !== s[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isIsomorphic("add", "egg")); // returns true
+console.log(isIsomorphic("foo", "bar")); // returns false
+console.log(isIsomorphic("far", "boo")); // returns false

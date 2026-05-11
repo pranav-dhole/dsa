@@ -117,3 +117,6 @@
 
 -isAnagram(s,t)
 -returns true or false if the given s string is anagram of t string.
+
+-isIsomorphic(s,t)
+-returns true if s is isomorphic of t else returns false.
