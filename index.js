@@ -1186,5 +1186,22 @@ function groupAnagrams(strs) {
   return myArr;
 }
 
-console.log(groupAnagrams([["eat", "tea", "tan", "ate", "nat", "bat"]])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
-console.log(groupAnagrams([""])); // returns [[""]].
+// 2nd way to write code
+function groupAnagrams2(strs) {
+  let map = {};
+
+  for (let s of strs) {
+    let sorted = s.split("").sort().join("");
+
+    if (!map[sorted]) {
+      map[sorted] = [];
+    }
+
+    map[sorted].push(s);
+  }
+
+  return Object.values(map);
+}
+
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
+console.log(groupAnagrams2([""])); // returns [[""]].
