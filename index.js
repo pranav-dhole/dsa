@@ -1156,6 +1156,35 @@ function isIsomorphic(s, t) {
   return true;
 }
 
-console.log(isIsomorphic("add", "egg")); // returns true
-console.log(isIsomorphic("foo", "bar")); // returns false
-console.log(isIsomorphic("far", "boo")); // returns false
+// console.log(isIsomorphic("add", "egg")); // returns true
+// console.log(isIsomorphic("foo", "bar")); // returns false
+// console.log(isIsomorphic("far", "boo")); // returns false
+
+// write a function that returns grouped anagrams in any order.
+// 1st way to code
+function groupAnagrams(strs) {
+  let map = {};
+  let myArr = [];
+
+  for (let i = 0; i < strs.length; i++) {
+    myArr.push(strs[i].split("").sort().join(""));
+  }
+
+  for (let i = 0; i < myArr.length; i++) {
+    if (!map[myArr[i]]) {
+      map[myArr[i]] = [strs[i]];
+    } else {
+      map[myArr[i]].push(strs[i]);
+    }
+  }
+
+  myArr = [];
+  for (let key in map) {
+    myArr.push(map[key]);
+  }
+
+  return myArr;
+}
+
+console.log(groupAnagrams([["eat", "tea", "tan", "ate", "nat", "bat"]])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
+console.log(groupAnagrams([""])); // returns [[""]].
