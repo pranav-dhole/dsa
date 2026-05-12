@@ -120,3 +120,6 @@
 
 -isIsomorphic(s,t)
 -returns true if s is isomorphic of t else returns false.
+
+-groupAnagrams(strs)
+-returns the grouped anagrams together in an array in any order.
