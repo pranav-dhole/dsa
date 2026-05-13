@@ -1203,5 +1203,39 @@ function groupAnagrams2(strs) {
   return Object.values(map);
 }
 
-console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
-console.log(groupAnagrams2([""])); // returns [[""]].
+//2nd approach
+function groupAnagrams3(strs) {
+  let map = {};
+
+  for (let i = 0; i < strs.length; i++) {
+    let freqArr = Array(26).fill(0);
+    for (let j = 0; j < strs[i].length; j++) {
+      let index = strs[i][j].charCodeAt() - "a".charCodeAt();
+      ++freqArr[index];
+    }
+
+    let key = "";
+    for (let k = 0; k < 26; k++) {
+      key = key + "#" + freqArr[k];
+    }
+
+    console.log(`${strs[i]}'s key : ${key}`);
+
+    if (!map[key]) {
+      map[key] = [strs[i]];
+    } else {
+      map[key].push(strs[i]);
+    }
+
+    console.log(map);
+    console.log(
+      "---------------------------------------------------------------",
+    );
+  }
+
+  return Object.values(map);
+}
+
+console.log(groupAnagrams3(["eat", "tea", "tan", "ate", "nat", "bat"])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
+console.log(groupAnagrams([""])); // returns [[""]].
+console.log(groupAnagrams2(["a"])); // returns [["a"]].
