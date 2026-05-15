@@ -124,3 +124,6 @@
 -groupAnagrams(strs)
 -returns the grouped anagrams together in an array in any order.
 -solved it with 2 approaches first one with time complexity of O(n _ m log m) and second one with O(n _ m)
+
+-learned about stack and queues
+-when to use which.
