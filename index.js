@@ -1297,3 +1297,39 @@ MyStack.prototype.empty = function () {
   // return true if main queue is empty else false
   return this.q1.length === 0; //if length is 0 return true else false, i.e (>0 length).
 };
+
+// 2nd approach with one queue
+var MyStack2 = function () {
+  this.q = [];
+};
+
+MyStack2.prototype.push = function (x) {
+  this.q.push(x);
+};
+
+MyStack2.prototype.pop = function () {
+  let n = this.q.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    this.q.push(this.q.shift());
+  }
+
+  return this.q.shift();
+};
+
+MyStack2.prototype.top = function () {
+  let n = this.q.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    this.q.push(this.q.shift());
+  }
+
+  let front = this.q.shift();
+  this.q.push(front);
+
+  return front;
+};
+
+MyStack2.prototype.empty = function () {
+  return this.q.length === 0;
+};
