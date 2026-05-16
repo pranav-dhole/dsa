@@ -127,3 +127,4 @@
 
 -learned about stack and queues
 -when to use which.
+-#225th. implement stack using queues, leetcode question.

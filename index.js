@@ -1236,6 +1236,64 @@ function groupAnagrams3(strs) {
   return Object.values(map);
 }
 
-console.log(groupAnagrams3(["eat", "tea", "tan", "ate", "nat", "bat"])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
-console.log(groupAnagrams([""])); // returns [[""]].
-console.log(groupAnagrams2(["a"])); // returns [["a"]].
+// console.log(groupAnagrams3(["eat", "tea", "tan", "ate", "nat", "bat"])); // returns [["bat"],["nat","tan"],["ate","eat","tea"]].
+// console.log(groupAnagrams([""])); // returns [[""]].
+// console.log(groupAnagrams2(["a"])); // returns [["a"]].
+
+// #225th. ImplementStack using queues
+// 1st approach using two queues
+var MyStack = function () {
+  this.q1 = []; // main queue
+  this.q2 = []; // helper queue
+};
+
+MyStack.prototype.push = function (x) {
+  // pushing the given element in main queue
+  this.q1.push(x);
+};
+
+MyStack.prototype.pop = function () {
+  let n = this.q1.length;
+
+  // if q1 = [1,2,3] then q2 will become [1,2].
+  for (let i = 0; i < n - 1; i++) {
+    this.q2.push(this.q1.shift());
+  }
+
+  //q1 =[3]
+  let front = this.q1.shift();
+
+  // exchange values of q1 and q2 because here the q1 is empty and q2 is [1,2]
+  let temp = this.q1; // []
+  this.q1 = this.q2; // [] => [1,2]
+  this.q2 = temp; // [1,2] => []
+
+  return front; // returning last remaining element from q1
+};
+
+MyStack.prototype.top = function () {
+  // return the top element from main queue
+  let n = this.q1.length;
+
+  // this will firstly transport all q1 elements to q2 until the last(top) element remains in it
+  for (let i = 0; i < n - 1; i++) {
+    this.q2.push(this.q1.shift());
+  }
+
+  let front = this.q1[0]; // this is our top element
+
+  // inserting the top element in q1 because we didnt push it in q2 in above loop
+  this.q2.push(front);
+
+  // now swap the q1 with q1 and vice versa.
+  let temp = this.q1;
+  this.q1 = this.q2;
+  this.q2 = temp;
+
+  return front; // returning the top element successfully
+};
+
+MyStack.prototype.empty = function () {
+  // return true if main queue is empty else false
+  return this.q1.length === 0; //if length is 0 return true else false, i.e (>0 length).
+};
