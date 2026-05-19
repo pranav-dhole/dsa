@@ -130,3 +130,6 @@
 -#225th. implement stack using queues, leetcode question.
 
 -#232th. Implement a queue using stacks.
+
+-isValid(s) #20th.leetcode question.
+-return true or false if given string is a valid parentheses.
