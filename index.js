@@ -1402,3 +1402,32 @@ function isValid(s) {
 
   return stack.length === 0;
 }
+
+// 2nd way to write a code
+function isValid2(s) {
+  let stack = [];
+
+  let map = {
+    "[": "]",
+    "{": "}",
+    "(": ")",
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]]) {
+      stack.push(s[i]);
+    } else {
+      let top = stack.pop();
+      if (!top || s[i] !== map[top]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+}
+
+console.log(isValid("()")); // returns true
+console.log(isValid(")(){}")); // returns false
+console.log(isValid2("()[]{}")); // returns true
+console.log(isValid2("()}")); // returns false
