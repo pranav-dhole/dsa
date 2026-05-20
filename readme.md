@@ -133,3 +133,6 @@
 
 -isValid(s) #20th.leetcode question.
 -return true or false if given string is a valid parentheses.
+
+-MinStack #155th. min stack leetcode question.
+-performs each task with O(1) time complexity
