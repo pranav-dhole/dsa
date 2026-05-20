@@ -1427,7 +1427,42 @@ function isValid2(s) {
   return stack.length === 0;
 }
 
-console.log(isValid("()")); // returns true
-console.log(isValid(")(){}")); // returns false
-console.log(isValid2("()[]{}")); // returns true
-console.log(isValid2("()}")); // returns false
+// console.log(isValid("()")); // returns true
+// console.log(isValid(")(){}")); // returns false
+// console.log(isValid2("()[]{}")); // returns true
+// console.log(isValid2("()}")); // returns false
+
+// design a stack which uses only O(1) time complexity to perform certain stack functions.
+
+var MinStack = function () {
+  this.stack = [];
+};
+
+MinStack.prototype.push = function (val) {
+  if (this.stack.length === 0) {
+    this.stack.push([val, val]);
+  } else {
+    let lastMinVal = this.stack[this.stack.length - 1][1];
+    let minVal = Math.min(val, lastMinVal);
+    this.stack.push([val, minVal]);
+  }
+};
+
+MinStack.prototype.pop = function () {
+  this.stack.pop();
+};
+
+MinStack.prototype.top = function () {
+  return this.stack[this.stack.length - 1][0];
+};
+
+MinStack.prototype.getMin = function () {
+  return this.stack[this.stack.length - 1][1];
+};
+
+// Input
+// ["MinStack","push","push","push","getMin","pop","top","getMin"]
+// [[],[-2],[0],[-3],[],[],[],[]]
+
+// Output
+// [null,null,null,null,-3,null,0,-2]
