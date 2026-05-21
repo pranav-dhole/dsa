@@ -136,3 +136,6 @@
 
 -MinStack #155th. min stack leetcode question.
 -performs each task with O(1) time complexity
+
+-removeOuterParentheses(s) #1021th.leetcode question.
+-returns a string by removing its outermost valid parentheses brackets.
