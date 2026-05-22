@@ -1512,5 +1512,59 @@ function removeOuterParentheses2(s) {
   return ans;
 }
 
-console.log(removeOuterParentheses("(()())(())(()(()))")); //()()()()(())
-console.log(removeOuterParentheses2("(()())(())")); // ()()()
+// console.log(removeOuterParentheses("(()())(())(()(()))")); //()()()()(())
+// console.log(removeOuterParentheses2("(()())(())")); // ()()()
+
+// write a function that returns a final calcualted integer from a tokens list in order of reverse polish notation.
+function evalRPN(tokens) {
+  let stack = [];
+  let a;
+  let b;
+
+  for (let i = 0; i < tokens.length; i++) {
+    if (
+      tokens[i] === "+" ||
+      tokens[i] === "-" ||
+      tokens[i] === "*" ||
+      tokens[i] === "/"
+    ) {
+      b = stack.pop();
+      a = stack.pop();
+    }
+
+    if (tokens[i] === "+") {
+      stack.push(Math.trunc(a + b));
+    } else if (tokens[i] === "-") {
+      stack.push(Math.trunc(a - b));
+    } else if (tokens[i] === "*") {
+      stack.push(Math.trunc(a * b));
+    } else if (tokens[i] === "/") {
+      stack.push(Math.trunc(a / b));
+    } else {
+      stack.push(Number(tokens[i]));
+    }
+  }
+
+  return stack.pop();
+}
+
+console.log(evalRPN(["2", "1", "+", "3", "*"])); // returns 9
+console.log(evalRPN(["4", "13", "5", "/", "+"])); // returns 6
+
+console.log(
+  evalRPN([
+    "10",
+    "6",
+    "9",
+    "3",
+    "+",
+    "-11",
+    "*",
+    "/",
+    "*",
+    "17",
+    "+",
+    "5",
+    "+",
+  ]),
+); // returns 22
