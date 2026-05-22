@@ -139,3 +139,6 @@
 
 -removeOuterParentheses(s) #1021th.leetcode question.
 -returns a string by removing its outermost valid parentheses brackets.
+
+-evalRPN(tokens) #150th. leetcode question
+-returns a final calcualted integer from a tokens list in order of reverse polish notation.
