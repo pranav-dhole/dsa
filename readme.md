@@ -145,3 +145,6 @@
 
 -dailyTemperatures(temp) #739th. leetocde question
 -return an array ans such that ans[i] is the number of days you have to wait after the ith day to get a warmer temperature.
+
+-nextGreaterElement(num1,num2) #496th. Next Greater Element I, leetcode question
+-returns an array ans of length nums1.length such that ans[i] is the next greater element as described above.

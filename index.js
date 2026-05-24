@@ -1591,5 +1591,35 @@ function dailyTemperatures(temp) {
   return ans;
 }
 
-console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])); // returns [1,1,4,2,1,1,0,0]
-console.log(dailyTemperatures([30, 40, 50, 60])); //returns [1,1,1,0]
+// console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])); // returns [1,1,4,2,1,1,0,0]
+// console.log(dailyTemperatures([30, 40, 50, 60])); //returns [1,1,1,0]
+
+// write a function that returns an array of length num1.length such that arr[i] is the next greater element as described above.
+var nextGreaterElement = function (num1, num2) {
+  let ngeMap = {};
+  let stack = [];
+  let n = num2.length;
+  stack.push(num2[num2.length - 1]);
+  ngeMap[num2[num2.length - 1]] = -1;
+
+  for (let i = num2.length - 2; i >= 0; i--) {
+    while (stack.length) {
+      if (num2[i] > stack[stack.length - 1]) {
+        stack.pop();
+      } else {
+        ngeMap[num2[i]] = stack[stack.length - 1];
+        break;
+      }
+    }
+
+    if (stack.length === 0) {
+      ngeMap[num2[i]] = -1;
+    }
+
+    stack.push(num2[i]);
+  }
+
+  return num1.map((x) => ngeMap[x]);
+};
+
+console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2])); // returns [-1,3,-1]
