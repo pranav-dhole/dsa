@@ -1548,23 +1548,48 @@ function evalRPN(tokens) {
   return stack.pop();
 }
 
-console.log(evalRPN(["2", "1", "+", "3", "*"])); // returns 9
-console.log(evalRPN(["4", "13", "5", "/", "+"])); // returns 6
+// console.log(evalRPN(["2", "1", "+", "3", "*"])); // returns 9
+// console.log(evalRPN(["4", "13", "5", "/", "+"])); // returns 6
+// console.log(
+//   evalRPN([
+//     "10",
+//     "6",
+//     "9",
+//     "3",
+//     "+",
+//     "-11",
+//     "*",
+//     "/",
+//     "*",
+//     "17",
+//     "+",
+//     "5",
+//     "+",
+//   ]),
+// ); // returns 22
 
-console.log(
-  evalRPN([
-    "10",
-    "6",
-    "9",
-    "3",
-    "+",
-    "-11",
-    "*",
-    "/",
-    "*",
-    "17",
-    "+",
-    "5",
-    "+",
-  ]),
-); // returns 22
+// write a function that return an array ans such that ans[i] is the number of days you have to wait after the ith day to get a warmer temperature.
+function dailyTemperatures(temp) {
+  let stack = [];
+  let ans = new Array(temp.length).fill(0);
+  stack.push(temp.length - 1);
+
+  for (let i = temp.length - 2; i >= 0; i--) {
+    while (stack.length) {
+      let top = temp[stack[stack.length - 1]];
+      if (temp[i] >= top) {
+        stack.pop();
+      } else {
+        ans[i] = stack[stack.length - 1] - i;
+        break;
+      }
+    }
+
+    stack.push(i);
+  }
+
+  return ans;
+}
+
+console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])); // returns [1,1,4,2,1,1,0,0]
+console.log(dailyTemperatures([30, 40, 50, 60])); //returns [1,1,1,0]

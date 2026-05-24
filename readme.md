@@ -142,3 +142,6 @@
 
 -evalRPN(tokens) #150th. leetcode question
 -returns a final calcualted integer from a tokens list in order of reverse polish notation.
+
+-dailyTemperatures(temp) #739th. leetocde question
+-return an array ans such that ans[i] is the number of days you have to wait after the ith day to get a warmer temperature.
