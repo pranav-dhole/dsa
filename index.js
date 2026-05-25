@@ -1622,4 +1622,30 @@ var nextGreaterElement = function (num1, num2) {
   return num1.map((x) => ngeMap[x]);
 };
 
-console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2])); // returns [-1,3,-1]
+// console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2])); // returns [-1,3,-1]
+
+// write a function that return the next greater number for every element in nums.
+// 1st way to write code
+function nextGreaterElement2(nums) {
+  let stack = [];
+  let arr = [...nums, ...nums];
+  let ans = Array(nums.length).fill(-1);
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    while (stack.length) {
+      if (arr[i] < stack[stack.length - 1]) {
+        ans[i] = stack[stack.length - 1];
+        break;
+      } else {
+        stack.pop();
+      }
+    }
+
+    stack.push(arr[i]);
+  }
+
+  return ans.slice(0, nums.length);
+}
+
+console.log(nextGreaterElement2([1, 2, 1]));
+console.log(nextGreaterElement2([1, 2, 3, 4, 3]));

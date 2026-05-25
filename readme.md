@@ -148,3 +148,6 @@
 
 -nextGreaterElement(num1,num2) #496th. Next Greater Element I, leetcode question
 -returns an array ans of length nums1.length such that ans[i] is the next greater element as described above.
+
+-nextGreaterElement(nums) #503th. Next Greater Element II leetcode question
+-return the next greater number for every element in nums.
