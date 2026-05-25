@@ -1647,5 +1647,28 @@ function nextGreaterElement2(nums) {
   return ans.slice(0, nums.length);
 }
 
-console.log(nextGreaterElement2([1, 2, 1]));
-console.log(nextGreaterElement2([1, 2, 3, 4, 3]));
+// 2nd way to write code
+function nextGreaterElement2Modified(nums) {
+  let stack = [];
+  let ans = Array(nums.length).fill(-1);
+  let n = nums.length;
+
+  for (let i = 2 * n - 1; i >= 0; i--) {
+    while (stack.length) {
+      if (nums[i % n] < stack[stack.length - 1]) {
+        ans[i % n] = stack[stack.length - 1];
+        break;
+      } else {
+        stack.pop();
+      }
+    }
+
+    stack.push(nums[i % n]);
+  }
+
+  return ans;
+}
+
+console.log(nextGreaterElement2([1, 2, 1])); // returns [2,-1,2]
+console.log(nextGreaterElement2([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
+console.log(nextGreaterElement2Modified([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
