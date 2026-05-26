@@ -151,3 +151,6 @@
 
 -nextGreaterElement(nums) #503th. Next Greater Element II leetcode question
 -return the next greater number for every element in nums.
+
+-maxMin(grid) #994th. Rotting Oranges, leetcode question.
+-returns the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
