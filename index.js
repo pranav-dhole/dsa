@@ -1669,6 +1669,86 @@ function nextGreaterElement2Modified(nums) {
   return ans;
 }
 
-console.log(nextGreaterElement2([1, 2, 1])); // returns [2,-1,2]
-console.log(nextGreaterElement2([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
-console.log(nextGreaterElement2Modified([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
+// console.log(nextGreaterElement2([1, 2, 1])); // returns [2,-1,2]
+// console.log(nextGreaterElement2([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
+// console.log(nextGreaterElement2Modified([1, 2, 3, 4, 3])); // returns [2,3,4,-1,4]
+
+function maxMin(grid) {
+  let rows = grid.length;
+  let cols = grid[0].length;
+  let queue = [];
+  let maxMinutes = 0;
+
+  // push all the places of index in queue where rotten oranges are present
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (grid[i][j] === 2) {
+        queue.push([i, j, 0]);
+      }
+    }
+  }
+
+  // find all the fresh oranges in adjacent directions of rotten oranges and make them rotten too. calculate no of minutes to rot all oranges.
+  while (queue.length) {
+    const [x, y, lvl] = queue.shift();
+
+    if (x > 0 && grid[x - 1][y] === 1) {
+      // left
+      grid[x - 1][y] = 2;
+      queue.push([x - 1, y, lvl + 1]);
+    }
+    if (x < rows - 1 && grid[x + 1][y] === 1) {
+      // right
+      grid[x + 1][y] = 2;
+      queue.push([x + 1, y, lvl + 1]);
+    }
+    if (y > 0 && grid[x][y - 1] === 1) {
+      // top
+      grid[x][y - 1] = 2;
+      queue.push([x, y - 1, lvl + 1]);
+    }
+    if (y < cols - 1 && grid[x][y + 1] === 1) {
+      // bottom
+      grid[x][y + 1] = 2;
+      queue.push([x, y + 1, lvl + 1]);
+    }
+
+    maxMinutes = Math.max(lvl, maxMinutes);
+  }
+
+  // find if there are any fresh oranges are left if there are any return -1 instantly
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (grid[i][j] === 1) {
+        return -1;
+      }
+    }
+  }
+
+  // if code comes till this line that means we were successful in rotting all the oranges whichi were fresh, so return in how many minutes we were able to rot them all.
+  return maxMinutes;
+}
+
+console.log(
+  maxMin([
+    [2, 1, 1],
+    [0, 1, 1],
+    [2, 1, 0],
+  ]),
+); // returns 4
+
+console.log(
+  maxMin([
+    [2, 1, 1],
+    [1, 1, 0],
+    [0, 1, 1],
+  ]),
+); // returns 4
+
+console.log(
+  maxMin([
+    [2, 1, 0],
+    [1, 0, 0],
+    [0, 1, 0],
+  ]),
+); // return -1
