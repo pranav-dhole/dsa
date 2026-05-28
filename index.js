@@ -1729,26 +1729,61 @@ function maxMin(grid) {
   return maxMinutes;
 }
 
-console.log(
-  maxMin([
-    [2, 1, 1],
-    [0, 1, 1],
-    [2, 1, 0],
-  ]),
-); // returns 4
+// console.log(
+//   maxMin([
+//     [2, 1, 1],
+//     [0, 1, 1],
+//     [2, 1, 0],
+//   ]),
+// ); // returns 4
 
-console.log(
-  maxMin([
-    [2, 1, 1],
-    [1, 1, 0],
-    [0, 1, 1],
-  ]),
-); // returns 4
+// console.log(
+//   maxMin([
+//     [2, 1, 1],
+//     [1, 1, 0],
+//     [0, 1, 1],
+//   ]),
+// ); // returns 4
 
-console.log(
-  maxMin([
-    [2, 1, 0],
-    [1, 0, 0],
-    [0, 1, 0],
-  ]),
-); // return -1
+// console.log(
+//   maxMin([
+//     [2, 1, 0],
+//     [1, 0, 0],
+//     [0, 1, 0],
+//   ]),
+// ); // return -1
+
+// write a function that returns the index of target if it is in nums, or -1 if it is not in nums. #33th leetcode question
+function binSearch(nums, target) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l <= r) {
+    let m = l + Math.floor((r - l) / 2);
+    if (target === nums[m]) {
+      return m;
+    }
+
+    // if left side sorted
+    if (nums[m] >= nums[l]) {
+      if (target < nums[m] && target >= nums[l]) {
+        r = m - 1;
+      } else {
+        l = m + 1;
+      }
+    } else {
+      // if right side sorted
+      if (target > nums[m] && target <= nums[r]) {
+        l = m + 1;
+      } else {
+        r = m - 1;
+      }
+    }
+  }
+
+  return -1;
+}
+
+console.log(binSearch([4, 5, 6, 7, 0, 1, 2], 0)); // returns 4
+console.log(binSearch([1], 0)); // returns -1
+console.log(binSearch([3, 1], 1)); // returns 1
