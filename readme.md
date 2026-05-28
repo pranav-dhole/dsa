@@ -154,3 +154,6 @@
 
 -maxMin(grid) #994th. Rotting Oranges, leetcode question.
 -returns the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+
+-binSearch(nums,target) #33th leetocde question.
+-returns the index of target if it is in nums, or -1 if it is not in nums.
