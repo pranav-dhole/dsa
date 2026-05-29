@@ -1784,6 +1784,30 @@ function binSearch(nums, target) {
   return -1;
 }
 
-console.log(binSearch([4, 5, 6, 7, 0, 1, 2], 0)); // returns 4
-console.log(binSearch([1], 0)); // returns -1
-console.log(binSearch([3, 1], 1)); // returns 1
+// console.log(binSearch([4, 5, 6, 7, 0, 1, 2], 0)); // returns 4
+// console.log(binSearch([1], 0)); // returns -1
+// console.log(binSearch([3, 1], 1)); // returns 1
+
+// write a function that returns the square root of given number in log n time complexity.
+function mySqrt(x) {
+  if (x < 2) return x;
+  let l = 2;
+  let r = Math.floor(x / 2);
+
+  while (l <= r) {
+    let m = Math.floor((l + r) / 2);
+    if (x === m ** 2) {
+      return m;
+    } else if (x < m ** 2) {
+      r = m - 1;
+    } else {
+      l = m + 1;
+    }
+  }
+
+  return r;
+}
+
+console.log(mySqrt(4)); // returns 2
+console.log(mySqrt(9)); // returns 3
+console.log(mySqrt(19)); // returns 4
