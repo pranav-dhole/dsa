@@ -157,3 +157,6 @@
 
 -binSearch(nums,target) #33th leetocde question.
 -returns the index of target if it is in nums, or -1 if it is not in nums.
+
+-mySqrt(x) #69th leetcode question
+-returns the square root of given number if the given number is not a complete square root of an number then return the closest minimum square root number.
