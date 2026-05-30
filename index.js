@@ -1808,6 +1808,26 @@ function mySqrt(x) {
   return r;
 }
 
-console.log(mySqrt(4)); // returns 2
-console.log(mySqrt(9)); // returns 3
-console.log(mySqrt(19)); // returns 4
+// console.log(mySqrt(4)); // returns 2
+// console.log(mySqrt(9)); // returns 3
+// console.log(mySqrt(19)); // returns 4
+
+function findPeakElement(nums) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l < r) {
+    let m = l + Math.floor((r - l) / 2);
+
+    if (nums[m] < nums[m + 1]) {
+      l = m + 1;
+    } else {
+      r = m;
+    }
+  }
+
+  return l;
+}
+
+console.log(findPeakElement([1, 2, 3, 1])); //returns 2
+console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4])); //returns 5
