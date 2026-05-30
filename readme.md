@@ -160,3 +160,6 @@
 
 -mySqrt(x) #69th leetcode question
 -returns the square root of given number if the given number is not a complete square root of an number then return the closest minimum square root number.
+
+-findPeakElement(nums) #162th leetcode question.
+-given 0-indexed integer array nums, find a peak element, and return its index.
