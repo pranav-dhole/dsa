@@ -163,3 +163,6 @@
 
 -findPeakElement(nums) #162th leetcode question.
 -given 0-indexed integer array nums, find a peak element, and return its index.
+
+-findMin(nums) #153th leetcode question.
+-Given the sorted rotated array nums of unique elements, return the minimum element of this array.
