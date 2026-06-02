@@ -1870,6 +1870,40 @@ function peakIndexInMountainArray(arr) {
   return l;
 }
 
-console.log(peakIndexInMountainArray([0, 10, 5, 2])); // returns 1
-console.log(peakIndexInMountainArray([0, 1, 0])); // returns 1
-console.log(peakIndexInMountainArray([0, 2, 1, 0])); // returns 2
+// console.log(peakIndexInMountainArray([0, 10, 5, 2])); // returns 1
+// console.log(peakIndexInMountainArray([0, 1, 0])); // returns 1
+// console.log(peakIndexInMountainArray([0, 2, 1, 0])); // returns 2
+
+// write a function that returns the single element that appears only once.
+function singleNonDuplicate(nums) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l <= r) {
+    let m = l + Math.floor((r - l) / 2);
+
+    // left side pair
+    if (nums[m] == nums[m - 1]) {
+      // left side odd
+      if ((m - 1 - l) % 2 === 1) {
+        r = m - 2;
+      } else {
+        // right side odd
+        l = m + 1;
+      }
+    } else if (nums[m] == nums[m + 1]) {
+      // right side pair
+      // right side odd
+      if ((m - l) % 2 === 1) {
+        r = m - 1;
+      } else {
+        l = m + 2;
+      }
+    } else {
+      return nums[m];
+    }
+  }
+}
+
+console.log(singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8])); // returns 2
+console.log(singleNonDuplicate([3, 3, 7, 7, 10, 11, 11])); // returns 10
