@@ -169,3 +169,6 @@
 
 -peakIndexInMountainArray(arr) #852th. Peak Index in a Mountain Array leetcode question
 -array arr of length n where the values increase to a peak element and then decrease. Return the index of the peak element.
+
+-singleNonDuplicate(nums) #540th leetcode question.
+-Return the single element that appears only once.
