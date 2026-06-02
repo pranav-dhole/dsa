@@ -1849,6 +1849,27 @@ function findMin(nums) {
   return nums[left];
 }
 
-console.log(findMin([3, 4, 5, 1, 2])); // returns 1
-console.log(findMin([4, 5, 6, 7, 0, 1, 2])); // returns 0
-console.log(findMin([11, 13, 15, 17])); // returns 11
+// console.log(findMin([3, 4, 5, 1, 2])); // returns 1
+// console.log(findMin([4, 5, 6, 7, 0, 1, 2])); // returns 0
+// console.log(findMin([11, 13, 15, 17])); // returns 11
+
+// write a function that returns the peak element from an array using logn time complexity.
+function peakIndexInMountainArray(arr) {
+  let l = 0;
+  let r = arr.length - 1;
+
+  while (l < r) {
+    let m = l + Math.floor((r - l) / 2);
+    if (arr[m] < arr[m + 1]) {
+      l = m + 1;
+    } else {
+      r = m;
+    }
+  }
+
+  return l;
+}
+
+console.log(peakIndexInMountainArray([0, 10, 5, 2])); // returns 1
+console.log(peakIndexInMountainArray([0, 1, 0])); // returns 1
+console.log(peakIndexInMountainArray([0, 2, 1, 0])); // returns 2
