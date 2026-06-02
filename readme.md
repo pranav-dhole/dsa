@@ -166,3 +166,6 @@
 
 -findMin(nums) #153th leetcode question.
 -Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+
+-peakIndexInMountainArray(arr) #852th. Peak Index in a Mountain Array leetcode question
+-array arr of length n where the values increase to a peak element and then decrease. Return the index of the peak element.
