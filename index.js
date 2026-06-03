@@ -1905,5 +1905,26 @@ function singleNonDuplicate(nums) {
   }
 }
 
-console.log(singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8])); // returns 2
-console.log(singleNonDuplicate([3, 3, 7, 7, 10, 11, 11])); // returns 10
+// console.log(singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8])); // returns 2
+// console.log(singleNonDuplicate([3, 3, 7, 7, 10, 11, 11])); // returns 10
+
+// write a function that Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array.
+function findClosestElements(arr, k, x) {
+  let l = 0;
+  let r = arr.length - 1;
+
+  while (l < r) {
+    let m = l + Math.floor((r - l) / 2);
+
+    if (arr[m + k] - x < x - arr[m]) {
+      l = m + 1;
+    } else {
+      r = m;
+    }
+  }
+
+  return arr.slice(l, l + k);
+}
+
+console.log(findClosestElements([1, 2, 3, 4, 5], 4, 3)); // returns [1,2,3,4]
+console.log(findClosestElements([1, 1, 2, 3, 4, 5], 4, -1)); // returns [1,1,2,3]
