@@ -172,3 +172,6 @@
 
 -singleNonDuplicate(nums) #540th leetcode question.
 -Return the single element that appears only once.
+
+-findClosestElements(arr,k,x) #658th leetcode question.
+-Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array.
