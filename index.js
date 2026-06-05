@@ -1926,5 +1926,53 @@ function findClosestElements(arr, k, x) {
   return arr.slice(l, l + k);
 }
 
-console.log(findClosestElements([1, 2, 3, 4, 5], 4, 3)); // returns [1,2,3,4]
-console.log(findClosestElements([1, 1, 2, 3, 4, 5], 4, -1)); // returns [1,1,2,3]
+// console.log(findClosestElements([1, 2, 3, 4, 5], 4, 3)); // returns [1,2,3,4]
+// console.log(findClosestElements([1, 1, 2, 3, 4, 5], 4, -1)); // returns [1,1,2,3]
+
+//write a function that returns the index of the given needle presence in haystack else return -1, using KMP algorithm.
+function strStr(haystack, needle) {
+  let hay = haystack.length;
+  let nee = needle.length;
+  let lap = [0];
+
+  let i = 0;
+  let j = 1;
+  while (j < nee) {
+    if (needle[j] === needle[i]) {
+      lap[j] = i + 1;
+      ++j;
+      ++i;
+    } else {
+      if (i === 0) {
+        lap[j] = 0;
+        ++j;
+      } else {
+        i = lap[i - 1];
+      }
+    }
+  }
+
+  i = j = 0;
+  while (i < hay) {
+    if (haystack[i] === needle[j]) {
+      ++i;
+      ++j;
+    } else {
+      if (j === 0) {
+        ++i;
+      } else {
+        j = lap[j - 1];
+      }
+    }
+
+    if (j === nee) {
+      return i - nee;
+    }
+  }
+
+  return -1;
+}
+
+console.log(strStr("sadbutsad", "sad")); // returns 0
+console.log(strStr("onionionsmike", "onions")); // returns 3
+console.log(strStr("leetcode", "leetu")); // returns -1
