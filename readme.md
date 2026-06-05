@@ -175,3 +175,6 @@
 
 -findClosestElements(arr,k,x) #658th leetcode question.
 -Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array.
+
+-strSttr(haystack,needle) #28th leetcode question.
+-Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
