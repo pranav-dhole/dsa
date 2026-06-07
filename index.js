@@ -1973,6 +1973,28 @@ function strStr(haystack, needle) {
   return -1;
 }
 
-console.log(strStr("sadbutsad", "sad")); // returns 0
-console.log(strStr("onionionsmike", "onions")); // returns 3
-console.log(strStr("leetcode", "leetu")); // returns -1
+// console.log(strStr("sadbutsad", "sad")); // returns 0
+// console.log(strStr("onionionsmike", "onions")); // returns 3
+// console.log(strStr("leetcode", "leetu")); // returns -1
+
+// write a function that returns the maximum amount of water a container can store.
+function maxArea(height) {
+  let max = -Infinity;
+  let i = 0;
+  let j = height.length - 1;
+
+  while (i < j) {
+    let sum = Math.min(height[i], height[j]) * (j - i);
+    if (sum > max) max = sum;
+    if (height[i] < height[j]) {
+      ++i;
+    } else {
+      --j;
+    }
+  }
+
+  return max;
+}
+
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // returns 49
+console.log(maxArea([1, 1])); // returns 1
