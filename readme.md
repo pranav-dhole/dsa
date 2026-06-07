@@ -178,3 +178,6 @@
 
 -strSttr(haystack,needle) #28th leetcode question.
 -Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+-maxArea(height) #11th. Container With Most Water leetcode question.
+-Return the maximum amount of water a container can store.
