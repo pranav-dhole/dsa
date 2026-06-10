@@ -181,3 +181,6 @@
 
 -maxArea(height) #11th. Container With Most Water leetcode question.
 -Return the maximum amount of water a container can store.
+
+-trap(height) #42th.Trapping rain water leetcode question.
+-Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
