@@ -1996,5 +1996,30 @@ function maxArea(height) {
   return max;
 }
 
-console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // returns 49
-console.log(maxArea([1, 1])); // returns 1
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // returns 49
+// console.log(maxArea([1, 1])); // returns 1
+
+// write a function that given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+function trap(height) {
+  let maxL = [];
+  maxL[0] = height[0];
+  for (let i = 1; i < height.length; i++) {
+    maxL[i] = Math.max(height[i], maxL[i - 1]);
+  }
+
+  let maxR = [];
+  maxR[height.length - 1] = height[height.length - 1];
+  for (let i = height.length - 2; i >= 0; i--) {
+    maxR[i] = Math.max(height[i], maxR[i + 1]);
+  }
+
+  let ans = 0;
+  for (let i = 0; i < height.length; i++) {
+    ans = ans + (Math.min(maxR[i], maxL[i]) - height[i]);
+  }
+
+  return ans;
+}
+
+console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])); // returns 6
+console.log(trap([4, 2, 0, 3, 2, 5])); // returns 9
