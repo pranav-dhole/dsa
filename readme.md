@@ -184,3 +184,6 @@
 
 -trap(height) #42th.Trapping rain water leetcode question.
 -Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+
+-characterReplacement(s,k) #424th. Longest Repeating Character Replacement leetcode question.
+-Return the length of the longest substring containing the same letter you can get after performing the above operations.
