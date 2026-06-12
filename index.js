@@ -2021,5 +2021,41 @@ function trap(height) {
   return ans;
 }
 
-console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])); // returns 6
-console.log(trap([4, 2, 0, 3, 2, 5])); // returns 9
+// console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])); // returns 6
+// console.log(trap([4, 2, 0, 3, 2, 5])); // returns 9
+
+// write a function that returns the length of the longest substring containing the same letter you can get after performing the above operations.
+function characterReplacement(s, k) {
+  let i = 0;
+  let j = 0;
+  let maxLen = 0;
+  let map = Array(26).fill(0);
+  map[s.charCodeAt(0) - 65] = 1;
+
+  while (j < s.length) {
+    if (isWindowValid(map, k)) {
+      maxLen = Math.max(maxLen, j - i + 1);
+      ++j;
+      ++map[s.charCodeAt(j) - 65];
+    } else {
+      --map[s.charCodeAt(i) - 65];
+      ++i;
+    }
+  }
+
+  return maxLen;
+}
+function isWindowValid(map, k) {
+  let totalCount = 0;
+  let maxCount = 0;
+
+  for (let i = 0; i < 26; i++) {
+    totalCount = totalCount + map[i];
+    maxCount = Math.max(maxCount, map[i]);
+  }
+
+  return totalCount - maxCount <= k;
+}
+
+console.log(characterReplacement("ABAB", 2)); // returns 4
+console.log(characterReplacement("AABABBA", 1)); // returns 4
