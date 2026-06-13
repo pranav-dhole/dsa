@@ -2057,5 +2057,36 @@ function isWindowValid(map, k) {
   return totalCount - maxCount <= k;
 }
 
-console.log(characterReplacement("ABAB", 2)); // returns 4
-console.log(characterReplacement("AABABBA", 1)); // returns 4
+// console.log(characterReplacement("ABAB", 2)); // returns 4
+// console.log(characterReplacement("AABABBA", 1)); // returns 4
+
+function checkInclusion(s1, s2) {
+  let hashP = Array(26).fill(0);
+  let hashW = Array(26).fill(0);
+
+  for (let i = 0; i < s1.length; i++) {
+    ++hashP[s1.charCodeAt(i) - 97];
+    ++hashW[s2.charCodeAt(i) - 97];
+  }
+
+  let i = 0;
+  let j = s1.length - 1;
+  while (j < s2.length) {
+    if (isEqual(hashP, hashW)) {
+      return true;
+    } else {
+      --hashW[s2.charCodeAt(i) - 97];
+      ++i;
+      ++j;
+      ++hashW[s2.charCodeAt(j) - 97];
+    }
+  }
+
+  return false;
+}
+function isEqual(hashP, hashW) {
+  return hashW.every((val, idx) => val === hashP[idx]);
+}
+
+console.log(checkInclusion("ab", "eidbaooo"));
+console.log(checkInclusion("ab", "eidboaoo"));
