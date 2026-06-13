@@ -2060,6 +2060,7 @@ function isWindowValid(map, k) {
 // console.log(characterReplacement("ABAB", 2)); // returns 4
 // console.log(characterReplacement("AABABBA", 1)); // returns 4
 
+// write a function that returns true if one of s1's permutations is the substring of s2.
 function checkInclusion(s1, s2) {
   let hashP = Array(26).fill(0);
   let hashW = Array(26).fill(0);
