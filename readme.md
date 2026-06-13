@@ -187,3 +187,6 @@
 
 -characterReplacement(s,k) #424th. Longest Repeating Character Replacement leetcode question.
 -Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+-checkInclusion(s1,s2) #567th. Permutation in String leetcode question.
+-return true if one of s1's permutations is the substring of s2.
