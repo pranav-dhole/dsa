@@ -2089,5 +2089,21 @@ function isEqual(hashP, hashW) {
   return hashW.every((val, idx) => val === hashP[idx]);
 }
 
-console.log(checkInclusion("ab", "eidbaooo"));
-console.log(checkInclusion("ab", "eidboaoo"));
+// console.log(checkInclusion("ab", "eidbaooo"));
+// console.log(checkInclusion("ab", "eidboaoo"));
+
+// write a function that given the root of a binary tree, return the preorder traversal of its nodes' values.
+function preorderTraversel(root) {
+  let ans = [];
+
+  function preTraversel(curr) {
+    if (!curr) return;
+    ans.push(curr.val);
+    preTraversel(curr.left);
+    preTraversel(curr.right);
+  }
+  preTraversel(root);
+  return ans;
+}
+//if given [1,null,2,3] returns [1,2,3].
+//if given [1,2,3,4,5,null,8,null,null,6,7,9] returns [1,2,4,5,6,7,3,8,9].
