@@ -190,3 +190,6 @@
 
 -checkInclusion(s1,s2) #567th. Permutation in String leetcode question.
 -return true if one of s1's permutations is the substring of s2.
+
+-preorderTraversal(root) #144th. Binary Tree Preorder Traversal leetcode question.
+-Given the root of a binary tree, return the preorder traversal of its nodes' values.
