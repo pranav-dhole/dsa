@@ -2107,3 +2107,17 @@ function preorderTraversel(root) {
 }
 //if given [1,null,2,3] returns [1,2,3].
 //if given [1,2,3,4,5,null,8,null,null,6,7,9] returns [1,2,4,5,6,7,3,8,9].
+
+// with iterative approach
+function preorderTraversel2(root) {
+  if (!root) return [];
+  let ans = [];
+  let stack = [root];
+  while (stack.length) {
+    let curr = stack.pop();
+    ans.push(curr.val);
+    curr.right && stack.push(curr.right);
+    curr.left && stack.push(curr.left);
+  }
+  return ans;
+}
