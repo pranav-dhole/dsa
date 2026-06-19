@@ -2141,3 +2141,26 @@ function inorderTraversel(root) {
 
 // if given [1,null,2,3] it returns [1,3,2].
 // if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,2,6,5,7,1,3,9,8].
+
+// write a function that returns postorder traversel of binary tree using iterative approach. left-right-root
+// using two stacks
+function postorderTraversel(root) {
+  if (!root) return [];
+  let s1 = [root];
+  let s2 = [];
+  while (s1.length) {
+    let curr = s1.pop();
+    s2.push(curr);
+    curr.left && s1.push(curr.left);
+    curr.right && s1.push(curr.right);
+  }
+
+  let ans = [];
+  while (s2.length) {
+    ans.push(s2.pop().val);
+  }
+  return ans;
+}
+
+// if given [1,null,2,3] it returns [3,2,1].
+// if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,6,7,5,2,9,8,3,1].
