@@ -194,3 +194,6 @@
 -preorderTraversal(root) #144th. Binary Tree Preorder Traversal leetcode question.
 -Given the root of a binary tree, return the preorder traversal of its nodes' values.
 -also wrote it in iterative approach.
+
+-inorderTraversel(root)
+-in iterative appraoch
