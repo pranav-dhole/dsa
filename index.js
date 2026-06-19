@@ -2121,3 +2121,23 @@ function preorderTraversel2(root) {
   }
   return ans;
 }
+
+// write a inorder traversel in iterative approach. left-root-right
+function inorderTraversel(root) {
+  let ans = [];
+  let stack = [];
+  let curr = root;
+
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+    curr = stack.pop();
+    ans.push(curr.val);
+    curr = curr.right;
+  }
+}
+
+// if given [1,null,2,3] it returns [1,3,2].
+// if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,2,6,5,7,1,3,9,8].
