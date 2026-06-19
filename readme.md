@@ -197,3 +197,6 @@
 
 -inorderTraversel(root)
 -in iterative appraoch
+
+-postorderTraversel(root)
+-in iterative approach.
