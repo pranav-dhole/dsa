@@ -199,4 +199,5 @@
 -in iterative appraoch
 
 -postorderTraversel(root)
--in iterative approach.
+-in iterative approach using 2 stacks.
+-in iterative approach using 1 stack.
