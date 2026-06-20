@@ -2162,5 +2162,27 @@ function postorderTraversel(root) {
   return ans;
 }
 
+// using one stack
+function postorderTraversal2(root) {
+  let ans = [];
+  let stack = [];
+  let curr = root;
+  let lastVisited = root;
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+    let topOfStack = stack[stack.length - 1];
+    if (topOfStack.right && topOfStack.right !== lastVisited) {
+      curr = topOfStack.right;
+    } else {
+      ans.push(topOfStack.val);
+      lastVisited = stack.pop();
+    }
+  }
+  return ans;
+}
+
 // if given [1,null,2,3] it returns [3,2,1].
 // if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,6,7,5,2,9,8,3,1].
