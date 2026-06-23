@@ -201,3 +201,6 @@
 -postorderTraversel(root)
 -in iterative approach using 2 stacks.
 -in iterative approach using 1 stack.
+
+-isSymmetric(root) #101th leetcode question.
+-in recursive approach.

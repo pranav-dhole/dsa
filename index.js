@@ -2186,3 +2186,20 @@ function postorderTraversal2(root) {
 
 // if given [1,null,2,3] it returns [3,2,1].
 // if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,6,7,5,2,9,8,3,1].
+
+function isSymmetric(root) {
+  function isMirror(left, right) {
+    if (!left && !right) return true;
+    if (!left || !right) return false;
+
+    return (
+      left.val === right.val &&
+      isMirror(left.right, right.left) &&
+      isMirror(left.left, right.right)
+    );
+  }
+  return isMirror(root.left, root.right);
+}
+
+// if given [1,2,2,3,4,4,3] it returns true.
+// if given [1,2,2,null,3,null,3] it returns false.
