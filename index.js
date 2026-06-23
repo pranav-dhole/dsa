@@ -2187,6 +2187,7 @@ function postorderTraversal2(root) {
 // if given [1,null,2,3] it returns [3,2,1].
 // if given [1,2,3,4,5,null,8,null,null,6,7,9] it returns [4,6,7,5,2,9,8,3,1].
 
+// recursive approach # 101th leetcode question.
 function isSymmetric(root) {
   function isMirror(left, right) {
     if (!left && !right) return true;
@@ -2199,6 +2200,25 @@ function isSymmetric(root) {
     );
   }
   return isMirror(root.left, root.right);
+}
+
+// iterative approach
+function isSymmetric2(root) {
+  let queue = [root.left, root.right];
+
+  while (queue.length) {
+    let p1 = queue.shift();
+    let p2 = queue.shift();
+
+    if (!p1 && !p2) continue;
+    if (!p1 || !p2) return false;
+    if (p1.val !== p2.val) return false;
+
+    queue.push(p1.left, p2.right);
+    queue.push(p1.right, p2.left);
+  }
+
+  return true;
 }
 
 // if given [1,2,2,3,4,4,3] it returns true.

@@ -204,3 +204,4 @@
 
 -isSymmetric(root) #101th leetcode question.
 -in recursive approach.
+-in iterative approach.
