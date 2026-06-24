@@ -208,3 +208,6 @@
 
 -isSameTree(p,q) #100th leetcode question.
 -Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+
+-isBalanced(root) #110th leetcode question.
+-Given a binary tree, determine if it is height-balanced.

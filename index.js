@@ -2238,3 +2238,27 @@ function isSameTree(p, q) {
 
 // if given p=[1,2,3] , q=[1,2,3] it returns true.
 // if given p=[1,2] , q=[1,null,2] it returns false.
+
+// Given a binary tree, determine if it is height-balanced. #110th leetcode question.
+function isBalanced(root) {
+  let ans = true;
+
+  function calHeight(curr) {
+    if (!curr) return 0;
+
+    let leftSide = calHeight(curr.left);
+    let rightSide = calHeight(curr.right);
+
+    if (Math.abs(leftSide - rightSide) > 1) {
+      ans = false;
+    }
+
+    return 1 + Math.max(leftSide, rightSide);
+  }
+
+  calHeight(root);
+  return ans;
+}
+
+// if given [3,9,20,null,null,15,7] it returns true.
+// if given [1,2,2,3,3,null,null,4,4] it returns false.
