@@ -2223,3 +2223,18 @@ function isSymmetric2(root) {
 
 // if given [1,2,2,3,4,4,3] it returns true.
 // if given [1,2,2,null,3,null,3] it returns false.
+
+// Given the roots of two binary trees p and q, write a function to check if they are the same or not. #100th leetcode question.
+function isSameTree(p, q) {
+  if (!p && !q) return true;
+  if (!p || !q) return false;
+
+  return (
+    p.val === q.val &&
+    isSameTree(p.left, q.right) &&
+    isSameTree(p.right, q.left)
+  );
+}
+
+// if given p=[1,2,3] , q=[1,2,3] it returns true.
+// if given p=[1,2] , q=[1,null,2] it returns false.

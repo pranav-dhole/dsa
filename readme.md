@@ -205,3 +205,6 @@
 -isSymmetric(root) #101th leetcode question.
 -in recursive approach.
 -in iterative approach.
+
+-isSameTree(p,q) #100th leetcode question.
+-Given the roots of two binary trees p and q, write a function to check if they are the same or not.
