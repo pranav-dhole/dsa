@@ -2262,3 +2262,40 @@ function isBalanced(root) {
 
 // if given [3,9,20,null,null,15,7] it returns true.
 // if given [1,2,2,3,3,null,null,4,4] it returns false.
+
+// Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
+// iterative way
+function zigzagLevelOrder(root) {
+  if (!root) [];
+  let ans = [];
+  let q = [root];
+  let level = 0;
+
+  while (q.length) {
+    let levelArr = [];
+    let levelSize = q.length;
+
+    for (let i = 0; i < levelSize; i++) {
+      let curr = q.shift();
+
+      if (level % 2 === 0) {
+        levelArr.push(curr.val);
+      } else {
+        levelArr.unshift(curr.val);
+      }
+
+      curr.left && q.push(curr.left);
+      curr.right && q.push(curr.right);
+    }
+
+    level++;
+    ans.push(levelArr);
+    levelArr = [];
+  }
+
+  return ans;
+}
+
+// if given [3,9,20,null,null,15,7] it returns [[3],[20,9],[15,7]].
+// if given [1] it returns [[1]].
+// if given [] it returns [].
