@@ -2296,6 +2296,31 @@ function zigzagLevelOrder(root) {
   return ans;
 }
 
+// recursive way
+function zigzagLevelOrder2(root) {
+  let ans = [];
+
+  function traversel(curr, level) {
+    if (!curr) return;
+
+    if (ans.length === level) {
+      ans.push([]);
+    }
+
+    if (level % 2 === 0) {
+      ans[level].push(curr.val);
+    } else {
+      ans[level].unshift(curr.val);
+    }
+
+    traversel(curr.left, level + 1);
+    traversel(curr.right, level + 1);
+  }
+
+  traversel(root, 0);
+  return ans;
+}
+
 // if given [3,9,20,null,null,15,7] it returns [[3],[20,9],[15,7]].
 // if given [1] it returns [[1]].
 // if given [] it returns [].
