@@ -2324,3 +2324,29 @@ function zigzagLevelOrder2(root) {
 // if given [3,9,20,null,null,15,7] it returns [[3],[20,9],[15,7]].
 // if given [1] it returns [[1]].
 // if given [] it returns [].
+
+// Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+function lowestCommonAncestor(root, p, q) {
+  let lca = null;
+
+  function traversel(curr) {
+    let count = 0;
+    if (!curr) return 0;
+
+    if (curr.val === p.val || curr.val === q.val) ++count;
+
+    let leftCount = traversel(curr.left);
+    let rightCount = traversel(curr.right);
+
+    count = count + leftCount + rightCount;
+    if (count === 2 && !lca) lca = curr;
+
+    return count;
+  }
+
+  traversel(root);
+  return lca;
+}
+
+// if given root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1 it returns 3.
+// if given root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4 it returns 5.
