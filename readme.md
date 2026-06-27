@@ -214,3 +214,6 @@
 
 -zigzagLevelOrder(root) #103th leetcode question.
 -Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
+
+-lowestCommonAncestor(root,p,q) #236th. Lowest Common Ancestor of a Binary Tree leetcode question
+-Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
