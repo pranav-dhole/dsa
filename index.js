@@ -2369,5 +2369,27 @@ function rightSideView(root) {
   return ans;
 }
 
+// iterative way
+function rightSideView2(root) {
+  if (!root) return [];
+  let ans = [];
+  let q = [root];
+
+  while (q.length) {
+    let currSize = q.length;
+
+    for (let i = 0; i < currSize; i++) {
+      let currNode = q.shift();
+
+      if (i === 0) ans.push(curr.val);
+
+      curr.right && q.push(curr.right);
+      curr.left && q.push(curr.left);
+    }
+  }
+
+  return ans;
+}
+
 // if given [1,2,3,null,5,null,4] it returns [1,3,4].
 // if given [1,2,3,4,null,null,null,5] it returns [1,3,4,5].
