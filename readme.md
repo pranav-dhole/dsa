@@ -217,3 +217,6 @@
 
 -lowestCommonAncestor(root,p,q) #236th. Lowest Common Ancestor of a Binary Tree leetcode question
 -Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+-rightSideView(root)
+-Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.

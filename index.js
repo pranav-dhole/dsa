@@ -2350,3 +2350,24 @@ function lowestCommonAncestor(root, p, q) {
 
 // if given root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1 it returns 3.
 // if given root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4 it returns 5.
+
+// Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+// recursive way
+function rightSideView(root) {
+  let ans = [];
+
+  function traversel(curr, lvl) {
+    if (!curr) return;
+
+    if (lvl === ans.length) ans.push(curr.val);
+
+    traversel(curr.right, lvl + 1);
+    traversel(curr.left, lvl + 1);
+  }
+
+  traversel(root, 0);
+  return ans;
+}
+
+// if given [1,2,3,null,5,null,4] it returns [1,3,4].
+// if given [1,2,3,4,null,null,null,5] it returns [1,3,4,5].
