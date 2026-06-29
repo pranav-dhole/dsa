@@ -220,3 +220,6 @@
 
 -rightSideView(root)
 -Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+-connect(root) #116th leetcode question.
+-Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
