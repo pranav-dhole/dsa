@@ -2393,3 +2393,28 @@ function rightSideView2(root) {
 
 // if given [1,2,3,null,5,null,4] it returns [1,3,4].
 // if given [1,2,3,4,null,null,null,5] it returns [1,3,4,5].
+
+// Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+function connect(root) {
+  if (!root) return [];
+  function traversel(curr) {
+    if (!curr) return;
+
+    if (curr.left) {
+      curr.left.next = curr.right;
+    }
+
+    if (curr.right && curr.next) {
+      curr.right.next = curr.next.left;
+    }
+
+    curr.left && traversel(curr.left);
+    curr.right && traversel(curr.right);
+  }
+
+  traversel(root);
+  return root;
+}
+
+// if given this [1,2,3,4,5,6,7] the tree should look like this [1,#,2,3,#,4,5,6,7,#]  "#" => NULL or LEVEL COMPELTE SIGN.
+// if given this [] the tree should look like this [].
