@@ -223,3 +223,6 @@
 
 -connect(root) #116th leetcode question.
 -Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+
+-maxPathSum(root) #124th leetcode question.
+-Given the root of a binary tree, return the maximum path sum of any non-empty path.
