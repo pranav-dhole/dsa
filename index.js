@@ -2418,3 +2418,23 @@ function connect(root) {
 
 // if given this [1,2,3,4,5,6,7] the tree should look like this [1,#,2,3,#,4,5,6,7,#]  "#" => NULL or LEVEL COMPELTE SIGN.
 // if given this [] the tree should look like this [].
+
+// Given the root of a binary tree, return the maximum path sum of any non-empty path.
+function maxPathSum(root) {
+  let ans = -Infinity;
+  function traversel(curr) {
+    if (!curr) return 0;
+
+    let leftMax = Math.max(0, traversel(curr.left));
+    let rightMax = Math.max(0, traversel(curr.right));
+
+    let currMax = curr.val + leftMax + rightMax;
+
+    ans = Math.max(ans, currMax);
+
+    return curr.val + Math.max(leftMax, rightMax);
+  }
+
+  traversel(root);
+  return ans;
+}
