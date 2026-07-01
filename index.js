@@ -2438,3 +2438,19 @@ function maxPathSum(root) {
   traversel(root);
   return ans;
 }
+
+// Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+function isValidBST(root, low = null, high = null) {
+  if (!root) return true;
+
+  let leftSide = isValidBST(root.left, low, root.val);
+  let rightSide = isValidBST(root.right, root.val, high);
+
+  if ((low !== null && root.val <= low) || (high !== null && root.val >= high))
+    return false;
+
+  return leftSide && rightSide;
+}
+
+// if given [2,1,3] it returns true.
+// if given [5,1,4,null,null,3,6] it returns false.
