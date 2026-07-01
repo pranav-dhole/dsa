@@ -226,3 +226,6 @@
 
 -maxPathSum(root) #124th leetcode question.
 -Given the root of a binary tree, return the maximum path sum of any non-empty path.
+
+- isValidBST(root) #98th leetcode question.
+  -Given the root of a binary tree, determine if it is a valid binary search tree (BST).
