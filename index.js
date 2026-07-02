@@ -2454,3 +2454,26 @@ function isValidBST(root, low = null, high = null) {
 
 // if given [2,1,3] it returns true.
 // if given [5,1,4,null,null,3,6] it returns false.
+
+// Find the node in the BST that the node's value equals val and return the subtree rooted with that node. If such a node does not exist, return null.
+function searchBST(root, val) {
+  let ans = null;
+
+  function traversel(curr) {
+    if (!curr) return;
+
+    if (curr.val === val) ans = curr;
+
+    if (curr.val > val) {
+      traversel(curr.left);
+    } else if (curr.val < val) {
+      traversel(curr.right);
+    }
+  }
+
+  traversel(root);
+  return ans;
+}
+
+// if given [4,2,7,1,3], val = 2 it returns [2,1,3] i.e node 2.
+// if given [4,2,7,1,3], val = 5 it returns [] i.e null.
