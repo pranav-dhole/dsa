@@ -2538,5 +2538,24 @@ function kthSmallest(root, k) {
   return ans[k - 1];
 }
 
+// using space complexity of O(1)
+function kthSmallest2(root, k) {
+  let ans = null;
+  let count = k;
+
+  function traversal(curr) {
+    if (!curr) return;
+    if (ans) return;
+
+    traversal(curr.left);
+    --count;
+    if (count === 0) ans = curr.val;
+    traversal(curr.right);
+  }
+
+  traversal(root);
+  return ans;
+}
+
 // if given [3,1,4,null,2], k = 1 it returns 1
 // if given [5,3,6,2,4,null,null,1], k = 3 it returns 3
