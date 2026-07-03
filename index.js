@@ -2520,3 +2520,23 @@ function insertIntoBST2(root, val) {
 
 // if given [4,2,7,1,3] and val as 5 it should return [4,2,7,1,3,5].
 // if given [40,20,60,10,30,50,70] and val as 25 it should return [40,20,60,10,30,50,70,null,null,25].
+
+// Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+// using an space complexity of O(n)
+function kthSmallest(root, k) {
+  let ans = [];
+
+  function traversal(curr) {
+    if (!curr) return;
+
+    traversal(curr.left);
+    ans.push(curr.val);
+    traversal(curr.right);
+  }
+
+  traversal(root);
+  return ans[k - 1];
+}
+
+// if given [3,1,4,null,2], k = 1 it returns 1
+// if given [5,3,6,2,4,null,null,1], k = 3 it returns 3

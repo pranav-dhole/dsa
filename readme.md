@@ -235,3 +235,6 @@
 
 -insertIntoBST(root,val) #701th leetcode question.
 -You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion.
+
+-kthSmallest(root,k) #230th leetcode question.
+-Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
