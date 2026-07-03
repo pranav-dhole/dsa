@@ -2477,3 +2477,33 @@ function searchBST(root, val) {
 
 // if given [4,2,7,1,3], val = 2 it returns [2,1,3] i.e node 2.
 // if given [4,2,7,1,3], val = 5 it returns [] i.e null.
+
+// You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion.
+// top down approach
+function insertIntoBST(root, val) {
+  if (!root) return new TreeNode(val);
+
+  function traversel(curr) {
+    if (!curr) return;
+
+    if (curr.val > val && curr.left === null) {
+      curr.left = new TreeNode(val);
+      return;
+    } else if (curr.val < val && curr.right === null) {
+      curr.right = new TreeNode(val);
+      return;
+    }
+
+    if (curr.val > val) {
+      traversel(curr.left);
+    } else {
+      traversel(curr.right);
+    }
+  }
+
+  traversel(root);
+  return root;
+}
+
+// if given [4,2,7,1,3] and val as 5 it should return [4,2,7,1,3,5].
+// if given [40,20,60,10,30,50,70] and val as 25 it should return [40,20,60,10,30,50,70,null,null,25].

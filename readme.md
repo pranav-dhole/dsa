@@ -232,3 +232,6 @@
 
 -searchBST(root,val) #700th leetcode question.
 -Find the node in the BST that the node's value equals val and return the subtree rooted with that node. If such a node does not exist, return null.
+
+-insertIntoBST(root,val) #701th leetcode question.
+-You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion.
