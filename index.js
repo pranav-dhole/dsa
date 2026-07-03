@@ -2505,5 +2505,18 @@ function insertIntoBST(root, val) {
   return root;
 }
 
+// bottom up appraoch
+function insertIntoBST2(root, val) {
+  if (!root) return new TreeNode(val);
+
+  if (root.val > val) {
+    root.left = insertIntoBST2(root.left, val);
+  } else {
+    root.right = insertIntoBST2(root.right, val);
+  }
+
+  return root;
+}
+
 // if given [4,2,7,1,3] and val as 5 it should return [4,2,7,1,3,5].
 // if given [40,20,60,10,30,50,70] and val as 25 it should return [40,20,60,10,30,50,70,null,null,25].
