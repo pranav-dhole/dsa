@@ -2559,3 +2559,28 @@ function kthSmallest2(root, k) {
 
 // if given [3,1,4,null,2], k = 1 it returns 1
 // if given [5,3,6,2,4,null,null,1], k = 3 it returns 3
+
+// Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
+function lowestCommonAncestorBST(root, p, q) {
+  // top down approach
+  let lca = null;
+
+  function traversel(curr) {
+    if (!curr || lca) return;
+
+    if (curr.val > p.val && curr.val > q.val) {
+      traversel(curr.left);
+    } else if (curr.val < p.val && curr.val < q.val) {
+      traversel(curr.right);
+    } else {
+      lca = curr;
+      return;
+    }
+  }
+
+  traversel(root);
+  return lca;
+}
+
+// if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 it returns 6.
+// if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 it returns 2.
