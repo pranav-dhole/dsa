@@ -2582,5 +2582,16 @@ function lowestCommonAncestorBST(root, p, q) {
   return lca;
 }
 
+function lowestCommonAncestorBST2(root, p, q) {
+  // bottom up approach
+  if (root.val > p.val && root.val > q.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  } else if (root.val < p.val && root.val < q.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  } else {
+    return root;
+  }
+}
+
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 it returns 6.
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 it returns 2.
