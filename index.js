@@ -2596,7 +2596,7 @@ function lowestCommonAncestorBST2(root, p, q) {
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 it returns 6.
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 it returns 2.
 
-// implementing insert method in min-heap using heapifyUp.
+// implementing insert & extract method in min-heap using heapifyUp & heapifyDown.
 class MinHeap {
   constructor() {
     this.heap = [];
@@ -2604,6 +2604,14 @@ class MinHeap {
 
   getParentIdx(i) {
     return Math.floor((i - 1) / 2);
+  }
+
+  getLeftChildIdx(i) {
+    return 2 * i + 1;
+  }
+
+  getRightChildIdx(i) {
+    return 2 * i + 2;
   }
 
   insert(val) {
@@ -2627,6 +2635,41 @@ class MinHeap {
       }
     }
   }
+
+  extract() {
+    if (!this.heap.length) return null;
+
+    let min = this.heap[0];
+    let lastIdx = this.heap.length - 1;
+
+    [this.heap[0], this.heap[lastIdx]] = [this.heap[lastIdx], this.heap[0]];
+
+    this.heap.pop();
+
+    this.heapifyDown(0);
+
+    return min;
+  }
+
+  heapifyDown(i) {
+    let left = this.getLeftChildIdx(i);
+    let right = this.getRightChildIdx(i);
+    let smallest = i;
+    let heapLen = this.heap.length;
+
+    if (left < heapLen && this.heap[left] < this.heap[smallest]) {
+      smallest = left;
+    }
+
+    if (right < heapLen && this.heap[right] < this.heap[smallest]) {
+      smallest = right;
+    }
+
+    if (smallest !== i) {
+      [this.heap[smallest], this.heap[i]] = [this.heap[i], this.heap[smallest]];
+      this.heapifyDown(smallest);
+    }
+  }
 }
 
 let minHeap = new MinHeap();
@@ -2637,4 +2680,7 @@ minHeap.insert(1);
 minHeap.insert(33);
 minHeap.insert(3);
 minHeap.insert(0);
-console.log(minHeap.heap); // this returns [0,5,1,40,33,10,3].
+console.log(minHeap.extract()); // 0
+console.log(minHeap.extract()); // 1
+minHeap.insert(2);
+console.log(minHeap.heap); // this returns [2,5,3,40,33,10].
