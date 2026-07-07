@@ -2595,3 +2595,46 @@ function lowestCommonAncestorBST2(root, p, q) {
 
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 it returns 6.
 // if given [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 it returns 2.
+
+// implementing insert method in min-heap using heapifyUp.
+class MinHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  getParentIdx(i) {
+    return Math.floor((i - 1) / 2);
+  }
+
+  insert(val) {
+    this.heap.push(val);
+    let lastIdx = this.heap.length - 1;
+
+    this.heapifyUp(lastIdx);
+  }
+
+  heapifyUp(i) {
+    while (i > 0) {
+      let parentIdx = this.getParentIdx(i);
+      if (this.heap[i] < this.heap[parentIdx]) {
+        [this.heap[i], this.heap[parentIdx]] = [
+          this.heap[parentIdx],
+          this.heap[i],
+        ];
+        i = parentIdx;
+      } else {
+        break;
+      }
+    }
+  }
+}
+
+let minHeap = new MinHeap();
+minHeap.insert(40);
+minHeap.insert(10);
+minHeap.insert(5);
+minHeap.insert(1);
+minHeap.insert(33);
+minHeap.insert(3);
+minHeap.insert(0);
+console.log(minHeap.heap); // this returns [0,5,1,40,33,10,3].
