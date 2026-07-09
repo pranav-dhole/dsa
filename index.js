@@ -2684,3 +2684,41 @@ console.log(minHeap.extract()); // 0
 console.log(minHeap.extract()); // 1
 minHeap.insert(2);
 console.log(minHeap.heap); // this returns [2,5,3,40,33,10].
+
+// writing heap sort using max heap.
+function heapSort(arr) {
+  let n = arr.length;
+
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapifyDown(arr, i, n);
+  }
+
+  for (let i = n - 1; i > 0; i--) {
+    [arr[0], arr[i]] = [arr[i], arr[0]];
+    heapifyDown(arr, 0, i);
+  }
+
+  return arr;
+}
+
+function heapifyDown(arr, i, n) {
+  let leftChild = 2 * i + 1;
+  let rightChild = 2 * i + 2;
+  let largest = i;
+
+  if (leftChild < n && arr[leftChild] > arr[largest]) {
+    largest = leftChild;
+  }
+
+  if (rightChild < n && arr[rightChild] > arr[largest]) {
+    largest = rightChild;
+  }
+
+  if (largest !== i) {
+    // swap the values of current node with largest node
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapifyDown(arr, largest, n);
+  }
+}
+
+heapSort([44, 6, 77, 1, 22, 0]);
