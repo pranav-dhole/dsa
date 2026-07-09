@@ -244,3 +244,5 @@
 
 -implenting insert method in min heap using heapifyUp.
 -implemented extract method in min heap using heapifyDown.
+
+-implemented heap sort using max heap and heapifyDown.
