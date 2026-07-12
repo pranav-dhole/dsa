@@ -2680,10 +2680,10 @@ minHeap.insert(1);
 minHeap.insert(33);
 minHeap.insert(3);
 minHeap.insert(0);
-console.log(minHeap.extract()); // 0
-console.log(minHeap.extract()); // 1
+// console.log(minHeap.extract()); // 0
+// console.log(minHeap.extract()); // 1
 minHeap.insert(2);
-console.log(minHeap.heap); // this returns [2,5,3,40,33,10].
+// console.log(minHeap.heap); // this returns [2,5,3,40,33,10].
 
 // writing heap sort using max heap.
 function heapSort(arr) {
@@ -2721,4 +2721,22 @@ function heapifyDown(arr, i, n) {
   }
 }
 
-heapSort([44, 6, 77, 1, 22, 0]);
+// heapSort([44, 6, 77, 1, 22, 0]);
+
+// Given an integer array nums and an integer k, return the kth largest element in the array.
+function findKthLargest(nums, k) {
+  // using leetcode provided priority queue
+  let pq = new MinPriorityQueue();
+
+  for (let i = 0; i < nums.length; i++) {
+    pq.enqueue(nums[i]);
+    if (pq.size() > k) {
+      pq.dequeue();
+    }
+  }
+
+  return pq.front();
+}
+
+// if given nums = [3,2,1,5,6,4], k = 2, it returns 5.
+// if given nums = [3,2,3,1,2,4,5,5,6], k = 4, it returns 4.
