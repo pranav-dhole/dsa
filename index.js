@@ -2740,3 +2740,26 @@ function findKthLargest(nums, k) {
 
 // if given nums = [3,2,1,5,6,4], k = 2, it returns 5.
 // if given nums = [3,2,3,1,2,4,5,5,6], k = 4, it returns 4.
+
+// 703th leetcode question : kth largest element in stream.
+var KthLargest = function (k, nums) {
+  this.heap = new MinPriorityQueue();
+  this.k = k;
+  for (let i = 0; i < nums.length; i++) {
+    this.add(nums[i]);
+  }
+  return null;
+};
+
+KthLargest.prototype.add = function (val) {
+  this.heap.enqueue(val);
+  if (this.heap.size() > this.k) {
+    this.heap.dequeue();
+  }
+
+  return this.heap.front();
+};
+
+// if given ["KthLargest", "add", "add", "add", "add", "add"]
+//          [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
+// it returns null, 4, 5, 5, 8, 8]
