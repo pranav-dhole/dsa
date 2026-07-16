@@ -2598,8 +2598,13 @@ function lowestCommonAncestorBST2(root, p, q) {
 
 // implementing insert & extract method in min-heap using heapifyUp & heapifyDown.
 class MinHeap {
-  constructor() {
+  constructor(selector = (x) => x) {
     this.heap = [];
+    this.selector = selector;
+  }
+
+  getPriority(i) {
+    return this.selector(this.heap[i]);
   }
 
   getParentIdx(i) {
@@ -2624,7 +2629,7 @@ class MinHeap {
   heapifyUp(i) {
     while (i > 0) {
       let parentIdx = this.getParentIdx(i);
-      if (this.heap[i] < this.heap[parentIdx]) {
+      if (this.getPriority(i) < this.getPriority(parentIdx)) {
         [this.heap[i], this.heap[parentIdx]] = [
           this.heap[parentIdx],
           this.heap[i],
@@ -2657,11 +2662,14 @@ class MinHeap {
     let smallest = i;
     let heapLen = this.heap.length;
 
-    if (left < heapLen && this.heap[left] < this.heap[smallest]) {
+    if (left < heapLen && this.getPriority(left) < this.getPriority(smallest)) {
       smallest = left;
     }
 
-    if (right < heapLen && this.heap[right] < this.heap[smallest]) {
+    if (
+      right < heapLen &&
+      this.getPriority(right) < this.getPriority(smallest)
+    ) {
       smallest = right;
     }
 
@@ -2672,17 +2680,19 @@ class MinHeap {
   }
 }
 
-let minHeap = new MinHeap();
-minHeap.insert(40);
-minHeap.insert(10);
-minHeap.insert(5);
-minHeap.insert(1);
-minHeap.insert(33);
-minHeap.insert(3);
-minHeap.insert(0);
+let minHeap = new MinHeap((x) => x.val);
+// minHeap.insert({ val: 40, name: "A" });
+// minHeap.insert({ val: 0, name: "B" });
+// minHeap.insert({ val: 7, name: "C" });
+// minHeap.insert(10);
+// minHeap.insert(5);
+// minHeap.insert(1);
+// minHeap.insert(33);
+// minHeap.insert(3);
+// minHeap.insert(0);
 // console.log(minHeap.extract()); // 0
 // console.log(minHeap.extract()); // 1
-minHeap.insert(2);
+// minHeap.insert(2);
 // console.log(minHeap.heap); // this returns [2,5,3,40,33,10].
 
 // writing heap sort using max heap.
