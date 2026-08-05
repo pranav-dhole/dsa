@@ -251,3 +251,6 @@
 -#215th. Kth Largest Element in an Array
 
 -#703th. Kth Largest Element in a Stream leetcode question.
+
+-#860th. Lemonade Change. lemonade change
+-return true if flow goes right otherwise return false.
