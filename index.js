@@ -2773,3 +2773,33 @@ KthLargest.prototype.add = function (val) {
 // if given ["KthLargest", "add", "add", "add", "add", "add"]
 //          [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
 // it returns null, 4, 5, 5, 8, 8]
+
+// Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise.
+function lemonadeChange(bills) {
+  let wallet = [0, 0];
+
+  for (let i = 0; i < bills.length; i++) {
+    if (bills[i] === 5) {
+      ++wallet[0];
+    } else if (bills[i] === 10) {
+      ++wallet[1];
+      --wallet[0];
+    } else {
+      if (wallet[1]) {
+        --wallet[1];
+        --wallet[0];
+      } else {
+        wallet[0] = wallet[0] - 3;
+      }
+    }
+
+    if (wallet[0] < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(lemonadeChange([5, 5, 5, 10, 20]));
+console.log(lemonadeChange([5, 5, 10, 10, 20]));
+console.log(lemonadeChange([5, 5, 5, 5, 20, 20, 5, 5, 5, 5]));
