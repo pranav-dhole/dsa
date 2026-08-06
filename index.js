@@ -2800,6 +2800,21 @@ function lemonadeChange(bills) {
   return true;
 }
 
-console.log(lemonadeChange([5, 5, 5, 10, 20]));
-console.log(lemonadeChange([5, 5, 10, 10, 20]));
-console.log(lemonadeChange([5, 5, 5, 5, 20, 20, 5, 5, 5, 5]));
+// console.log(lemonadeChange([5, 5, 5, 10, 20]));
+// console.log(lemonadeChange([5, 5, 10, 10, 20]));
+// console.log(lemonadeChange([5, 5, 5, 5, 20, 20, 5, 5, 5, 5]));
+
+function maxProfit(prices) {
+  let profit = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i - 1] < prices[i]) {
+      profit += prices[i] - prices[i - 1];
+    }
+  }
+
+  return profit;
+}
+
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 7
+console.log(maxProfit([7, 6, 5, 4, 2, 1])); // 0
