@@ -257,3 +257,7 @@
 
 -#122th. Best Time to Buy and Sell Stock II.
 -Find and return the maximum profit you can achieve.
+
+-#198th. House Robber
+-Given array nums representing the amount of money of each house, return the maximum amount of money you can rob.
+-Solving with time O(n) and space complexity of O(n) and O(1). with two approaches

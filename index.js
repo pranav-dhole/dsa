@@ -2816,5 +2816,33 @@ function maxProfit(prices) {
   return profit;
 }
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 7
-console.log(maxProfit([7, 6, 5, 4, 2, 1])); // 0
+// console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 7
+// console.log(maxProfit([7, 6, 5, 4, 2, 1])); // 0
+
+// DYNAMIC PROGRAMMING
+
+function rob1(nums) {
+  // time complexity O(n) and space complexity O(n)
+  if (nums.length === 1) return nums[0];
+  let dp = [nums[0], Math.max(nums[0], nums[1])];
+  for (let i = 2; i < nums.length; i++) {
+    dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+  }
+  return dp[dp.length - 1];
+}
+
+console.log(rob1([1, 2, 3, 1])); // returns 4
+
+function rob2(nums) {
+  // time complexity O(n) and space complexity O(1)
+  if (nums.length === 1) return nums[0];
+  let dp = [nums[0], Math.max(nums[0], nums[1])];
+  for (let i = 2; i < nums.length; i++) {
+    dp[2] = Math.max(dp[0] + nums[i], dp[1]);
+    dp.shift();
+  }
+  return dp[dp.length - 1];
+}
+
+console.log(rob1([2, 1, 1, 2])); // returns 4
+console.log(rob1([2, 1, 7, 9])); // returns 11
