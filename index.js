@@ -2831,7 +2831,7 @@ function rob1(nums) {
   return dp[dp.length - 1];
 }
 
-console.log(rob1([1, 2, 3, 1])); // returns 4
+// console.log(rob1([1, 2, 3, 1])); // returns 4
 
 function rob2(nums) {
   // time complexity O(n) and space complexity O(1)
@@ -2844,5 +2844,32 @@ function rob2(nums) {
   return dp[dp.length - 1];
 }
 
-console.log(rob1([2, 1, 1, 2])); // returns 4
-console.log(rob1([2, 1, 7, 9])); // returns 11
+// console.log(rob1([2, 1, 1, 2])); // returns 4
+// console.log(rob1([2, 1, 7, 9])); // returns 11
+
+function change(amount, coins) {
+  let memo = Array.from({ length: amount + 1 }, () =>
+    Array(coins.length).fill(-1),
+  );
+
+  function helper(remAmt, start) {
+    if (remAmt > amount) return 0;
+    if (remAmt === amount) return 1;
+    if (memo[remAmt][start] !== -1) return memo[remAmt][start];
+
+    let result = 0;
+    for (let i = start; i < coins.length; i++) {
+      result += helper(remAmt + coins[i], i);
+    }
+
+    memo[remAmt][start] = result;
+    return result;
+  }
+
+  return helper(0, 0);
+}
+
+console.log(change(5, [1, 2, 5])); // 4
+console.log(change(6, [1, 2, 5])); // 5
+console.log(change(10, [10])); // 1
+console.log(change(10, [12])); // 0

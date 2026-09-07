@@ -261,3 +261,6 @@
 -#198th. House Robber
 -Given array nums representing the amount of money of each house, return the maximum amount of money you can rob.
 -Solving with time O(n) and space complexity of O(n) and O(1). with two approaches
+
+-#518th. Coin change 2
+-Return the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.
